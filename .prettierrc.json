@@ -1,0 +1,18 @@
+{
+  "endOfLine": "lf",
+  "semi": true,
+  "singleQuote": false,
+  "arrowParens": "avoid",
+  "bracketSpacing": true,
+  "quoteProps": "as-needed",
+  "trailingComma": "all",
+  "useTabs": false,
+  "overrides": [
+    {
+      "files": ["*.mjml", "*.hbs"],
+      "options": {
+        "parser": "html"
+      }
+    }
+  ]
+}

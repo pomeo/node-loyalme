@@ -1,0 +1,6 @@
+{
+  "src": ["src"],
+  "exclude": ["test/**", "**/*.json"],
+  "all": true,
+  "reporter": ["lcovonly", "text", "json"]
+}

@@ -1,0 +1,210 @@
+{
+  // ESLint 7.x is not understanding private class field, so, need better parser
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "prettier",
+    "plugin:jsdoc/recommended",
+    "plugin:unicorn/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:node/recommended",
+    "plugin:radar/recommended"
+  ],
+  "plugins": [
+    "optimize-regex",
+    "sort-destructure-keys",
+    "unicorn",
+    "typescript-eslint"
+  ],
+  "rules": {
+    "no-empty": [
+      "error",
+      {
+        "allowEmptyCatch": true
+      }
+    ],
+    "strict": ["error", "never"],
+
+    "import/no-commonjs": "error",
+    "import/extensions": ["error", "always"],
+
+    "jsdoc/valid-types": "off",
+    "jsdoc/require-param-description": "off",
+
+    // presentation
+    "sort-keys": ["off", "asc", { "caseSensitive": false, "natural": true }],
+    "sort-vars": ["error", { "ignoreCase": true }],
+    "sort-destructure-keys/sort-destructure-keys": "error",
+
+    // require `await` in `async function`
+    // (note: this is a horrible rule that should never be used)
+    // https://eslint.org/docs/rules/require-await
+    "require-await": "off",
+    // disallow unnecessary string escaping
+    // https://eslint.org/docs/rules/no-useless-escape
+    "no-useless-escape": "error",
+    // require let or const instead of var
+    "no-var": "error",
+
+    // require method and property shorthand syntax for object literals
+    // https://eslint.org/docs/rules/object-shorthand
+    "object-shorthand": [
+      "error",
+      "always",
+      {
+        "ignoreConstructors": false,
+        "avoidQuotes": true
+      }
+    ],
+    // suggest using arrow functions as callbacks
+    "prefer-arrow-callback": [
+      "error",
+      {
+        "allowNamedFunctions": false,
+        "allowUnboundThis": true
+      }
+    ],
+
+    // suggest using of const declaration for variables that are never modified after declared
+    "prefer-const": [
+      "error",
+      {
+        "destructuring": "any",
+        "ignoreReadBeforeAssign": true
+      }
+    ],
+    // Prefer destructuring from arrays and objects
+    // https://eslint.org/docs/rules/prefer-destructuring
+    "prefer-destructuring": [
+      "error",
+      {
+        "VariableDeclarator": {
+          "array": false,
+          "object": true
+        },
+        "AssignmentExpression": {
+          "array": true,
+          "object": false
+        }
+      },
+      {
+        "enforceForRenamedProperties": false
+      }
+    ],
+    "prefer-rest-params": "error",
+    "prefer-spread": "error",
+    "no-return-await": "off",
+    "no-unreachable": "warn",
+
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": false,
+        "ignoreMemberSort": false,
+        "ignoreDeclarationSort": true,
+        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "parent", "index", "sibling"],
+        "newlines-between": "always",
+        "pathGroupsExcludedImportTypes": ["builtin"],
+        "alphabetize": { "order": "asc", "caseInsensitive": true }
+      }
+    ],
+    "import/newline-after-import": ["error", { "count": 1 }],
+
+    // typescript-eslint - https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin#supported-rules
+    "@typescript-eslint/no-base-to-string": "error",
+    "@typescript-eslint/no-this-alias": [
+      "error",
+      {
+        "allowDestructuring": true // Allow `const { props, state } = this`; false by default
+      }
+    ],
+    "@typescript-eslint/prefer-for-of": "error",
+    "@typescript-eslint/prefer-includes": "error",
+    "@typescript-eslint/prefer-nullish-coalescing": "error",
+    "@typescript-eslint/prefer-optional-chain": "error",
+    "@typescript-eslint/prefer-string-starts-ends-with": "error",
+    "@typescript-eslint/no-magic-numbers": "warn",
+    "@typescript-eslint/no-useless-constructor": "error",
+
+    // we will check that via eslint-plugin-import
+    "node/no-unpublished-import": "off",
+    "node/no-extraneous-import": "off",
+    "node/no-missing-import": "off",
+
+    "node/prefer-global/url": "error",
+    "node/prefer-global/url-search-params": "error",
+    "node/prefer-promises/fs": "error",
+    "node/prefer-promises/dns": "error",
+
+    // unicorn - https://github.com/sindresorhus/eslint-plugin-unicorn
+    "unicorn/prevent-abbreviations": "off",
+    "unicorn/throw-new-error": "error",
+    "unicorn/prefer-type-error": "error",
+    "unicorn/no-unused-properties": "warn",
+    "unicorn/custom-error-definition": "error",
+    "unicorn/error-message": "error",
+    "unicorn/prefer-exponentiation-operator": "error",
+    "unicorn/catch-error-name": [
+      "error",
+      {
+        "name": "err"
+      }
+    ],
+    "unicorn/prefer-includes": "error",
+    "unicorn/no-for-loop": "error",
+    "unicorn/no-zero-fractions": "error",
+    "unicorn/prefer-reflect-apply": "error",
+    "unicorn/consistent-function-scoping": "error",
+    "unicorn/prefer-optional-catch-binding": "error",
+    "unicorn/prefer-set-has": "error",
+    "unicorn/prefer-spread": "error",
+    "unicorn/prefer-trim-start-end": "error",
+    "unicorn/prefer-flat-map": "error",
+    "unicorn/no-array-instanceof": "error",
+    "unicorn/no-useless-undefined": "error",
+    "unicorn/prefer-number-properties": "error"
+  },
+  "overrides": [
+    {
+      "files": ["*.test.js", "test/**.js"],
+      "env": {
+        "mocha": true
+      },
+      "rules": {
+        "unicorn/consistent-function-scoping": "off",
+        "import/order": "off", // may interfere with mocking,
+        "max-nested-callbacks": "off",
+        "max-lines": "off",
+        "prefer-arrow-callback": "off"
+      },
+      "extends": [
+        "plugin:mocha/recommended",
+        "plugin:chai-expect/recommended",
+        "plugin:@fintechstudios/chai-as-promised/recommended"
+      ]
+    }
+  ],
+  "settings": {
+    "node": {
+      "tryExtensions": [".js", ".mjs", ".json"]
+    },
+    "jsdoc": {
+      "mode": "typescript"
+    }
+  }
+}

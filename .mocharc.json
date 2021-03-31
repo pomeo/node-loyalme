@@ -1,0 +1,7 @@
+{
+  "check-leaks": true,
+  "color": true,
+  "timeout": 15000,
+  "recursive": true,
+  "enable-source-maps": true
+}
