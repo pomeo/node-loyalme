@@ -9,68 +9,9 @@ const reqOptions: OptionsOfJSONResponseBody = {
   throwHttpErrors: false
 }
 
-function createClientObj(params: {
-  id?: number
-  externalId?: string
-  external_id?: string
-  email?: string
-  phone?: string
-  name?: string
-  middleName?: string
-  middle_name?: string
-  lastName?: string
-  last_name?: string
-  fingerprint?: string
-  client_hash?: string
-  birthdate?: any
-  birthdate_select?: {
-    day: string
-    month: string
-    year: string
-  }
-  gender?: 0 | 1
-  otherPhones?: string[]
-  other_phones?: string[]
-  otherPhonesSubscribe?: number[]
-  other_phones_subscribe?: number[]
-  otherEmails?: string[]
-  other_emails?: string[]
-  otherEmailsSubscribe?: number[]
-  other_emails_subscribe?: number[]
-  attribute?: { [key: string]: string }
-  person_id?: number
-  point_id?: number
-  brand_id?: number
-}, config: {
-  url: string
-  token: string
-  pointId: number
-  brandId: number
-  personId: number
-}) {
-  const reqObject: {
-    point_id: number
-    brand_id: number
-    name?: string
-    last_name?: string
-    middle_name?: string
-    email?: string
-    birthdate_select?: {
-      day: string
-      month: string
-      year: string
-    }
-    gender?: 0 | 1
-    phone?: string
-    client_hash?: string
-    other_phones?: string[]
-    other_phones_subscribe?: number[]
-    other_emails?: string[]
-    other_emails_subscribe?: number[]
-    attribute?: { [key: string]: string }
-    person_id: number
-    external_id?: string
-  } = {
+function createClientObj(params: IParamsClientBoth,
+                         config: ILoyalmeConfig) {
+  const reqObject: IClientRequest = {
     person_id: config.personId,
     point_id: config.pointId,
     brand_id: config.brandId
@@ -96,7 +37,7 @@ function createClientObj(params: {
         year: d[0]
       }
     }
-    if (params.birthdate.date) {
+    if (typeof params.birthdate === 'object' && params.birthdate.date) {
       const d = params.birthdate.date.split(' ')[0].split('-');
       reqObject.birthdate_select = {
         day: d[2],
@@ -124,10 +65,12 @@ function createClientObj(params: {
     reqObject.last_name = params.last_name;
   }
   if (params.fingerprint) {
-    reqObject.client_hash = params.fingerprint;
-  }
-  if (params.client_hash) {
-    reqObject.client_hash = params.client_hash;
+    if (typeof params.fingerprint === 'string') {
+      reqObject.client_hash = params.fingerprint;
+    }
+    if (Array.isArray(params.client_hash)) {
+      reqObject.client_hash = params.client_hash;
+    }
   }
   if (params.otherPhones) {
     reqObject.other_phones = params.otherPhones;
@@ -164,7 +107,7 @@ async function getClient(params: {
   value: string
   token: string
   url: string
-}) {
+}): Promise<Response<IClientResponse>> {
   const gotOptions = Object.assign(reqOptions, {});
   gotOptions.searchParams = {};
   gotOptions.searchParams[params.key] = params.value;
@@ -172,91 +115,53 @@ async function getClient(params: {
   return await got.get(`https://${params.url}${api}`, gotOptions);
 }
 
-async function createClient(params: {
-  externalId?: string
-  email?: string
-  phone?: string
-  name?: string
-  middleName?: string
-  lastName?: string
-  fingerprint?: string
-  birthdate?: string
-  gender?: 0 | 1
-  otherPhones?: string[]
-  otherPhonesSubscribe?: number[]
-  otherEmails?: string[]
-  otherEmailsSubscribe?: number[]
-  attribute?: { [key: string]: string }
-}, config: {
-  url: string
-  token: string
-  pointId: number
-  brandId: number
-  personId: number
-}) {
+async function createClient(params: IParamsClient,
+                            config: ILoyalmeConfig): Promise<Response<IClientResponse>> {
   const gotOptions = Object.assign(reqOptions, {});
   gotOptions.headers!.Authorization = `Bearer ${config.token}`;
   gotOptions.json = createClientObj(params, config);
   return await got.post(`https://${config.url}${api}`, gotOptions);
 }
 
-async function updateClient(params: {
-  externalId?: string
-  email?: string
-  phone?: string
-  name?: string
-  middleName?: string
-  lastName?: string
-  fingerprint?: string
-  birthdate?: string
-  gender?: 0 | 1
-  otherPhones?: string[]
-  otherPhonesSubscribe?: number[]
-  otherEmails?: string[]
-  otherEmailsSubscribe?: number[]
-  attribute?: { [key: string]: string }
-}, responseLoyalme: any, config: {
-  url: string
-  token: string
-  pointId: number
-  brandId: number
-  personId: number
-}) {
+async function updateClient(params: IParamsClient,
+                            responseLoyalme: Response<IClientResponse>,
+                            data: IParamsClientBoth,
+                            config: ILoyalmeConfig): Promise<Response<IClientResponse>> {
   const newClientObj = createClientObj(params, config);
-  const oldClientObj = createClientObj(responseLoyalme, config);
+  const oldClientObj = createClientObj(data, config);
   if (_.isEqual(newClientObj, oldClientObj)) {
     return responseLoyalme;
   } else {
     const gotOptions = Object.assign(reqOptions, {});
     gotOptions.headers!.Authorization = `Bearer ${config.token}`;
     gotOptions.json = newClientObj;
-    return await got.put(`https://${config.url}${api}/${responseLoyalme.id}`, gotOptions);
+    return await got.put(`https://${config.url}${api}/${data.id}`, gotOptions);
   }
 }
 
-export async function client(params: {
-  externalId?: string
-  email?: string
-  phone?: string
-  name?: string
-  middleName?: string
-  lastName?: string
-  fingerprint?: string
-  birthdate?: string
-  gender?: 0 | 1
-  otherPhones?: string[]
-  otherPhonesSubscribe?: number[]
-  otherEmails?: string[]
-  otherEmailsSubscribe?: number[]
-  attribute?: { [key: string]: string }
-}, config: {
-  url: string
-  token: string
-  pointId: number
-  brandId: number
-  personId: number
-}) {
-  let response: Response<any> | undefined;
+async function createResponse(params: IParamsClient,
+                              response: Response<IClientResponse> | undefined,
+                              config: ILoyalmeConfig) {
+  if (response?.body?.data?.[0]) {
+    const clientRes: Response<IClientResponse> = await updateClient(params, response, response.body.data[0], config);
+    if (clientRes.body?.data) {
+      return clientRes.body.data;
+    } else {
+      return clientRes.body;
+    }
+  } else {
+    const clientRes: Response<IClientResponse> = await createClient(params, config);
+    if (clientRes.body?.data) {
+      return clientRes.body.data;
+    } else {
+      return clientRes.body;
+    }
+  }
+}
+
+export async function client(params: IParamsClient,
+                             config: ILoyalmeConfig) {
+  let response: Response<IClientResponse> | undefined;
 
   if (params.externalId) {
     response = await getClient({
@@ -285,22 +190,5 @@ export async function client(params: {
     })
   }
 
-  let clientResponse: any;
-  if (response?.body.data?.[0]) {
-    console.log('update');
-    const clientRes: Response<any> = await updateClient(params, response.body.data[0], config);
-    if (clientRes.body?.data) {
-      clientResponse = clientRes.body.data;
-    } else {
-      clientResponse = clientRes.body;
-    }
-  } else {
-    const clientRes: Response<any> = await createClient(params, config);
-    if (clientRes.body?.data) {
-      clientResponse = clientRes.body.data;
-    } else {
-      clientResponse = clientRes.body;
-    }
-  }
-  return clientResponse;
+  return await createResponse(params, response, config);
 }

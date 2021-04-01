@@ -6,7 +6,7 @@ Loyalme module that allows you to communicate with the Loyalme API from node.js
 ## Installation
 
 ```
-npm install loyalme --save
+npm install loyalme
 ```
 
 ## Usage
