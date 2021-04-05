@@ -201,7 +201,7 @@
   ],
   "settings": {
     "node": {
-      "tryExtensions": [".js", ".mjs", ".json"]
+      "tryExtensions": [".ts", ".json"]
     },
     "jsdoc": {
       "mode": "typescript"
