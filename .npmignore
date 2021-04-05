@@ -17,4 +17,6 @@ package-lock.json
 renovate.json
 src
 tsconfig.json
+test
+coverage
 test.js
