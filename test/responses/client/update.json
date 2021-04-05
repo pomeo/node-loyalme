@@ -1,0 +1,56 @@
+{
+    "data": {
+        "id": 123,
+        "point_id": 1,
+        "brand_id": 2,
+        "person_id": 3,
+        "name": "Newname",
+        "middle_name": "",
+        "last_name": "",
+        "birthdate": {
+            "date": "2000-02-01 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "Europe/Moscow"
+        },
+        "gender": 0,
+        "address": null,
+        "passport_seria": null,
+        "passport_number": null,
+        "passport_issued_date": null,
+        "passport_issued_by": null,
+        "phones": [
+            {
+                "phone": "79031235678",
+                "subscription_status": 3,
+                "status": 3
+            }
+        ],
+        "phone": "79031235678",
+        "emails": [
+            {
+                "email": "test@test.com",
+                "subscription_status": 3,
+                "status": 3
+            }
+        ],
+        "email": "test@test.com",
+        "labels": [],
+        "points": null,
+        "status": null,
+        "created_at": {
+            "date": "2021-04-04 00:03:05.000000",
+            "timezone_type": 3,
+            "timezone": "Europe/Moscow"
+        },
+        "updated_at": {
+            "date": "2021-04-04 00:03:05.000000",
+            "timezone_type": 3,
+            "timezone": "Europe/Moscow"
+        },
+        "blocked_at": null,
+        "client_hash": [],
+        "ankudinov_test": null,
+        "test_field": "22test_fieldtest_fieldtest_field22",
+        "external_id": null
+    }
+}
