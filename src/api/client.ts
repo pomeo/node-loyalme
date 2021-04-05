@@ -128,7 +128,7 @@ async function updateClient(params: IParamsClient,
         result[key] = tmpClientObj[key];
       }
       return result;
-    }, {} as any);
+    }, {} as IClientRequest);
   if (_.isEqual(newClientObj, oldClientObj)) {
     return responseLoyalme;
   } else {
