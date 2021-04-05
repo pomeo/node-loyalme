@@ -1,3 +1,6 @@
+/**
+ * cspell:ignore Loyalme
+ */
 import { client } from './api/client';
 
 class Loyalme {
@@ -18,9 +21,9 @@ class Loyalme {
     const _params = params || {};
     if (!_params.url) throw new Error('Missing url');
     if (!_params.token) throw new Error('Missing token');
-    if (!_params.brandId) throw new Error('Missing brand id');
-    if (!_params.pointId) throw new Error('Missing point id');
-    if (!_params.personId) throw new Error('Missing person id');
+    if (isNaN(_params.brandId)) throw new Error('Missing brand id');
+    if (isNaN(_params.pointId)) throw new Error('Missing point id');
+    if (isNaN(_params.personId)) throw new Error('Missing person id');
 
     this.url = _params.url;
     this.token = _params.token;

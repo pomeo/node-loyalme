@@ -1,4 +1,5 @@
 interface ILoyalmeConfig {
+  [index: string]: string | number
   url: string
   token: string
   pointId: number
@@ -7,12 +8,21 @@ interface ILoyalmeConfig {
 }
 
 interface ILoyalmeBirthday {
+  [index: string]: string | number
   date: string
   timezone_type: number
   timezone: string
 }
 
+interface ILoyalmeReqBirthday {
+  [index: string]: string
+  day: string
+  month: string
+  year: string
+}
+
 interface ILoyalmeClientHash {
+  [index: string]: string | number
   id: number
   client_hash: string
 }
@@ -55,17 +65,21 @@ interface IParamsClientBoth extends IParamsClient {
 }
 
 interface IClientRequest {
+  [index: string]: string
+      | number
+      | undefined
+      | ILoyalmeReqBirthday
+      | ILoyalmeClientHash[]
+      | string[]
+      | number[]
+      | { [key: string]: string }
   point_id: number
   brand_id: number
   name?: string
   last_name?: string
   middle_name?: string
   email?: string
-  birthdate_select?: {
-    day: string
-    month: string
-    year: string
-  }
+  birthdate_select?: ILoyalmeReqBirthday
   gender?: 0 | 1
   phone?: string
   client_hash?: string | ILoyalmeClientHash[]
@@ -78,70 +92,71 @@ interface IClientRequest {
   external_id?: string
 }
 
+interface IClientDataResponse {
+  id: number
+  point_id: number
+  brand_id: number
+  person_id: number
+  name?: string
+  middle_name?: string
+  last_name?: string
+  birthdate?: {
+    date: string
+    timezone_type: number
+    timezone: string
+  },
+  gender?: 0 | 1
+  address?: string
+  passport_seria?: string
+  passport_number?: string
+  passport_issued_date?: string
+  passport_issued_by?: string
+  phones?: {
+    phone: string
+    subscription_status: number
+    status: number
+  }[]
+  phone?: string
+  emails?: {
+    email: string
+    subscription_status: number
+    status: number
+  }[]
+  email?: string
+  labels?: {
+    id: number
+    name: string
+    description: string
+  }[]
+  points?: number
+  status?: string
+  created_at: {
+    date: string
+    timezone_type: number
+    timezone: string
+  }
+  updated_at: {
+    date: string
+    timezone_type: number
+    timezone: string
+  }
+  blocked_at?: {
+    date: string
+    timezone_type: number
+    timezone: string
+  }
+  client_hash?: {
+    id: number
+    client_hash: string
+  }[]
+  external_id?: string
+}
 
 interface IClientResponse {
   message?: string
   code?: number
   status_code?: number
-  data?: {
-    id: number
-    point_id: number
-    brand_id: number
-    person_id: number
-    name?: string
-    middle_name?: string
-    last_name?: string
-    birthdate?: {
-      date: string
-      timezone_type: number
-      timezone: string
-    },
-    gender?: 0 | 1
-    address?: string
-    passport_seria?: string
-    passport_number?: string
-    passport_issued_date?: string
-    passport_issued_by?: string
-    phones?: {
-      phone: string
-      subscription_status: number
-      status: number
-    }[]
-    phone?: string
-    emails?: {
-      email: string
-      subscription_status: number
-      status: number
-    }[]
-    email?: string
-    labels?: {
-      id: number
-      name: string
-      description: string
-    }[]
-    points?: number
-    status?: string
-    created_at: {
-      date: string
-      timezone_type: number
-      timezone: string
-    }
-    updated_at: {
-      date: string
-      timezone_type: number
-      timezone: string
-    }
-    blocked_at?: {
-      date: string
-      timezone_type: number
-      timezone: string
-    }
-    client_hash?: {
-      id: number
-      client_hash: string
-    }[]
-    external_id?: string
-  }[]
+  data?: IClientDataResponse[]
   meta?: {
     pagination?: {
       total?: number
@@ -160,5 +175,10 @@ interface IClientResponse {
 interface ILoyalmeError {
   message: string
   code: number
+  status_code: number
+}
+
+interface IClientMergeResponse {
+  message: string
   status_code: number
 }
