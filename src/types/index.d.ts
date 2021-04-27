@@ -18,15 +18,6 @@ interface ILoyalmeConfig {
   personId: number
 }
 
-interface ILoyalmeConfig {
-  [index: string]: string | number
-  url: string
-  token: string
-  pointId: number
-  brandId: number
-  personId: number
-}
-
 interface ILoyalmeBirthday {
   [index: string]: string | number
   date: string
