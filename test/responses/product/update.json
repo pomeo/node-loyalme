@@ -1,0 +1,22 @@
+{
+    "data": {
+        "id": 20,
+        "points": 0,
+        "ext_item_id": 123456,
+        "title": "Newproduct3",
+        "barcode": "12345",
+        "price": 123,
+        "is_active": 1,
+        "type_id": 1,
+        "point_id": 0,
+        "accrual_rate": 0,
+        "ext_photo_url": null,
+        "categories": [
+            {
+                "id": 10,
+                "title": "Newname12"
+            }
+        ],
+        "aliases": []
+    }
+}

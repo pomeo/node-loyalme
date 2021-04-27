@@ -1,3 +1,23 @@
+interface ILoyalmeClass {
+  url: string
+  token: string
+  brandId: number
+  pointId: number
+  personId: number
+  client: Function
+  category: Function
+  product: Function
+}
+
+interface ILoyalmeConfig {
+  [index: string]: string | number
+  url: string
+  token: string
+  pointId: number
+  brandId: number
+  personId: number
+}
+
 interface ILoyalmeConfig {
   [index: string]: string | number
   url: string
@@ -38,8 +58,10 @@ interface IParamsClient {
   birthdate?: string | ILoyalmeBirthday
   gender?: 0 | 1
   otherPhones?: string[]
+  otherPhonesValidate?: number[]
   otherPhonesSubscribe?: number[]
   otherEmails?: string[]
+  otherEmailsValidate?: number[]
   otherEmailsSubscribe?: number[]
   attribute?: { [key: string]: string }
 }
@@ -56,8 +78,10 @@ interface IParamsClientBoth extends IParamsClient {
     year: string
   }
   other_phones?: string[]
+  other_phones_validate?: number[]
   other_phones_subscribe?: number[]
   other_emails?: string[]
+  other_emails_validate?: number[]
   other_emails_subscribe?: number[]
   person_id?: number
   point_id?: number
@@ -89,6 +113,14 @@ interface IClientRequest {
   other_emails_subscribe?: number[]
   attribute?: { [key: string]: string }
   person_id: number
+  external_id?: string
+}
+
+interface ICategoryRequest {
+  [index: string]: string | number | undefined | null
+  name?: string
+  point_id: number
+  parent_id?: number | null
   external_id?: string
 }
 
@@ -152,11 +184,10 @@ interface IClientDataResponse {
   external_id?: string
 }
 
-interface IClientResponse {
+interface ILoyalmeResponse {
   message?: string
   code?: number
   status_code?: number
-  data?: IClientDataResponse[]
   meta?: {
     pagination?: {
       total?: number
@@ -172,6 +203,41 @@ interface IClientResponse {
   }
 }
 
+interface IClientResponse extends ILoyalmeResponse {
+  data?: IClientDataResponse[]
+}
+
+interface ICategoryResponseOne extends ILoyalmeResponse {
+  data?: ICategoryDataResponse
+}
+
+interface ICategoryResponse extends ILoyalmeResponse {
+  data?: ICategoryDataResponse[]
+}
+
+interface IProductResponseOne extends ILoyalmeResponse {
+  data?: IProductDataResponse
+}
+
+interface IProductResponse extends ILoyalmeResponse {
+  data?: IProductDataResponse[]
+}
+
+interface ICategoryDataResponse {
+  id: number
+  parent_id?: number | null
+  name?: string
+  external_id?: string
+}
+
+interface IParamsCategory {
+  externalId?: string
+  external_id?: string
+  parentId?: number | null
+  parent_id?: number | null
+  name?: string
+}
+
 interface ILoyalmeError {
   message: string
   code: number
@@ -181,4 +247,58 @@ interface ILoyalmeError {
 interface IClientMergeResponse {
   message: string
   status_code: number
+}
+
+interface IParamsProduct {
+  [index: string]: any
+}
+
+interface IProductDataResponse {
+  [key: string]: string
+      | number
+      | undefined
+      | {
+        id: number
+        title?: string
+      }[]
+  id?: number
+  points?: number
+  ext_item_id?: number
+  title?: string
+  barcode?: string
+  price?: number
+  is_active?: number
+  type_id?: number
+  point_id: number
+  accrual_rate?: number
+  ext_photo_url?: string
+  categories: {
+    id: number
+    title?: string
+  }[]
+}
+
+interface IProductRequest {
+  [key: string]: string
+      | number
+      | undefined
+      | {
+        id: number
+        title?: string
+      }[] | number[]
+  id?: number
+  points?: number
+  ext_item_id?: number
+  title?: string
+  barcode?: string
+  price?: number
+  is_active?: number
+  type_id?: number
+  point_id: number
+  accrual_rate?: number
+  ext_photo_url?: string
+  categories: {
+    id: number
+    title?: string
+  }[] | number[]
 }

@@ -1,0 +1,9 @@
+{
+    "message": "Could not create new product",
+    "errors": {
+        "barcode": [
+            "Такое значение поля Штрихкод уже существует."
+        ]
+    },
+    "status_code": 422
+}

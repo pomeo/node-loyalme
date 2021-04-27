@@ -2,6 +2,8 @@
  * cspell:ignore Loyalme
  */
 import { client } from './api/client';
+import { category } from './api/category';
+import { product } from './api/product';
 
 class Loyalme {
 
@@ -43,8 +45,10 @@ class Loyalme {
     birthdate?: string
     gender?: 0 | 1
     otherPhones?: string[]
+    otherPhonesValidate?: number[]
     otherPhonesSubscribe?: number[]
     otherEmails?: string[]
+    otherEmailsValidate?: number[]
     otherEmailsSubscribe?: number[]
     attribute?: { [key: string]: string }
   }) {
@@ -55,6 +59,27 @@ class Loyalme {
       brandId: this.brandId,
       personId: this.personId
     });
+  }
+
+  category(params: IParamsCategory[]) {
+    return category(params, {
+      url: this.url,
+      token: this.token,
+      pointId: this.pointId,
+      brandId: this.brandId,
+      personId: this.personId
+    });
+  }
+
+  product(products: IParamsProduct[],
+          categories: IParamsCategory[]) {
+    return product(products, categories, {
+      url: this.url,
+      token: this.token,
+      pointId: this.pointId,
+      brandId: this.brandId,
+      personId: this.personId
+    }, this);
   }
 }
 

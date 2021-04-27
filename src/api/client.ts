@@ -237,12 +237,12 @@ export async function client(params: IParamsClient,
                              config: ILoyalmeConfig) {
   let response: Response<IClientResponse> | undefined;
 
-  if (params.fingerprint) {
-    response = await getClientByFingerprint(params, config);
+  if (params.externalId) {
+    response = await getClientByExternalId(params, config);
   }
 
-  if (params.externalId && response?.statusCode !== 200) {
-    response = await getClientByExternalId(params, config);
+  if (params.fingerprint && response?.statusCode !== 200) {
+    response = await getClientByFingerprint(params, config);
   }
 
   if (params.email && response?.statusCode !== 200) {
