@@ -293,3 +293,126 @@ interface IProductRequest {
     title?: string
   }[] | number[]
 }
+
+interface IParamsPaymentStatus {
+  title_en?: string
+  title_ru?: string
+  slug: string
+  is_active?: number
+}
+
+interface IPaymentStatusResponse extends ILoyalmeResponse {
+  data?: IPaymentStatusDataResponse[]
+}
+
+interface IPaymentStatusResponseOne extends ILoyalmeResponse {
+  data?: IPaymentStatusDataResponse
+}
+
+interface IPaymentStatusDataResponse {
+  id: number
+  title_en: string
+  title_ru: string
+  slug: string
+  is_active: number
+  created_at: {
+    date: string
+    timezone_type: number
+    timezone: string
+  }
+  updated_at: {
+    date: string
+    timezone_type: number
+    timezone: string
+  }
+}
+
+interface IPaymentStatusRequest {
+  [index: string]: string | number | undefined
+  title_en?: string
+  title_ru?: string
+  slug?: string
+  is_active?: number
+}
+
+interface IParamsPaymentMethod {
+  title_en?: string
+  title_ru?: string
+  slug: string
+  is_active?: number
+}
+
+interface IPaymentMethodResponse extends ILoyalmeResponse {
+  data?: IPaymentMethodDataResponse[]
+}
+
+interface IPaymentMethodResponseOne extends ILoyalmeResponse {
+  data?: IPaymentMethodDataResponse
+}
+
+interface IPaymentMethodDataResponse {
+  id: number
+  title_en: string
+  title_ru: string
+  slug: string
+  is_active: number
+  created_at: {
+    date: string
+    timezone_type: number
+    timezone: string
+  }
+  updated_at: {
+    date: string
+    timezone_type: number
+    timezone: string
+  }
+}
+
+interface IPaymentMethodRequest {
+  [index: string]: string | number | undefined
+  title_en?: string
+  title_ru?: string
+  slug?: string
+  is_active?: number
+}
+
+interface IParamsOrderStatus {
+  title_en?: string
+  title_ru?: string
+  slug: string
+  is_active?: number
+}
+
+interface IOrderStatusResponse extends ILoyalmeResponse {
+  data?: IOrderStatusDataResponse[]
+}
+
+interface IOrderStatusResponseOne extends ILoyalmeResponse {
+  data?: IOrderStatusDataResponse
+}
+
+interface IOrderStatusDataResponse {
+  id: number
+  title_en: string
+  title_ru: string
+  slug: string
+  is_active: number
+  created_at: {
+    date: string
+    timezone_type: number
+    timezone: string
+  }
+  updated_at: {
+    date: string
+    timezone_type: number
+    timezone: string
+  }
+}
+
+interface IOrderStatusRequest {
+  [index: string]: string | number | undefined
+  title_en?: string
+  title_ru?: string
+  slug?: string
+  is_active?: number
+}

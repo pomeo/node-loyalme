@@ -1,0 +1,19 @@
+{
+    "data": {
+        "id": 3,
+        "title_en": "Test",
+        "title_ru": "Тест",
+        "slug": "test",
+        "is_active": 1,
+        "created_at": {
+            "date": "2021-05-06 17:50:22.000000",
+            "timezone_type": 3,
+            "timezone": "Europe/Moscow"
+        },
+        "updated_at": {
+            "date": "2021-05-06 17:50:22.000000",
+            "timezone_type": 3,
+            "timezone": "Europe/Moscow"
+        }
+    }
+}

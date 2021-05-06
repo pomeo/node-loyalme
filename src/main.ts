@@ -4,6 +4,12 @@
 import { client } from './api/client';
 import { category } from './api/category';
 import { product } from './api/product';
+import { activityList,
+         fireEvent,
+         cancelEvent } from './api/activity';
+import { paymentStatus } from './api/paymentStatus';
+import { paymentMethod } from './api/paymentMethod';
+import { orderStatus } from './api/orderStatus';
 
 class Loyalme {
 
@@ -80,6 +86,66 @@ class Loyalme {
       brandId: this.brandId,
       personId: this.personId
     }, this);
+  }
+
+  activityList() {
+    return activityList({
+      url: this.url,
+      token: this.token,
+      pointId: this.pointId,
+      brandId: this.brandId,
+      personId: this.personId
+    });
+  }
+
+  cancelEvent() {
+    return cancelEvent({
+      url: this.url,
+      token: this.token,
+      pointId: this.pointId,
+      brandId: this.brandId,
+      personId: this.personId
+    });
+  }
+
+  fireEvent() {
+    return fireEvent({
+      url: this.url,
+      token: this.token,
+      pointId: this.pointId,
+      brandId: this.brandId,
+      personId: this.personId
+    });
+  }
+
+  paymentStatus(status: IParamsPaymentStatus[]) {
+    return paymentStatus(status, {
+      url: this.url,
+      token: this.token,
+      pointId: this.pointId,
+      brandId: this.brandId,
+      personId: this.personId
+    });
+  }
+
+  paymentMethod(method: IParamsPaymentMethod[]) {
+    return paymentMethod(method, {
+      url: this.url,
+      token: this.token,
+      pointId: this.pointId,
+      brandId: this.brandId,
+      personId: this.personId
+    });
+  }
+
+  orderStatus(method: IParamsOrderStatus[]) {
+    return orderStatus(status, {
+      url: this.url,
+      token: this.token,
+      pointId: this.pointId,
+      brandId: this.brandId,
+      personId: this.personId
+    });
   }
 }
 

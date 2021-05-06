@@ -98,11 +98,6 @@ async function updateProduct(params: IParamsProduct,
                              config: ILoyalmeConfig): Promise<IProductDataResponse | undefined> {
   const newProductObj = createProductObj(params, config);
   const tmpProductObj = createProductObj(item, config);
-  for (const key in tmpProductObj) {
-    if (!(key in newProductObj)) {
-      delete tmpProductObj[key];
-    }
-  }
   const oldProductObj = Object
     .keys(newProductObj)
     .reduce((result, key) => {

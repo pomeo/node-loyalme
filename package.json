@@ -1,7 +1,7 @@
 {
   "name": "loyalme",
   "homepage": "https://github.com/pomeo/loyalme",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Loyalme module for node.js",
   "keywords": [
     "loyalme",
