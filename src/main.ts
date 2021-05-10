@@ -61,7 +61,8 @@ class Loyalme {
       token: this.token,
       pointId: this.pointId,
       brandId: this.brandId,
-      personId: this.personId
+      personId: this.personId,
+      clientId: this.clientId
     });
   }
 
@@ -71,7 +72,8 @@ class Loyalme {
       token: this.token,
       pointId: this.pointId,
       brandId: this.brandId,
-      personId: this.personId
+      personId: this.personId,
+      clientId: this.clientId
     });
   }
 
@@ -82,7 +84,8 @@ class Loyalme {
       token: this.token,
       pointId: this.pointId,
       brandId: this.brandId,
-      personId: this.personId
+      personId: this.personId,
+      clientId: this.clientId
     }, this);
   }
 
@@ -92,7 +95,8 @@ class Loyalme {
       token: this.token,
       pointId: this.pointId,
       brandId: this.brandId,
-      personId: this.personId
+      personId: this.personId,
+      clientId: this.clientId
     });
   }
 
@@ -102,7 +106,8 @@ class Loyalme {
       token: this.token,
       pointId: this.pointId,
       brandId: this.brandId,
-      personId: this.personId
+      personId: this.personId,
+      clientId: this.clientId
     });
   }
 
@@ -112,7 +117,8 @@ class Loyalme {
       token: this.token,
       pointId: this.pointId,
       brandId: this.brandId,
-      personId: this.personId
+      personId: this.personId,
+      clientId: this.clientId
     });
   }
 
@@ -122,7 +128,8 @@ class Loyalme {
       token: this.token,
       pointId: this.pointId,
       brandId: this.brandId,
-      personId: this.personId
+      personId: this.personId,
+      clientId: this.clientId
     });
   }
 
@@ -132,7 +139,8 @@ class Loyalme {
       token: this.token,
       pointId: this.pointId,
       brandId: this.brandId,
-      personId: this.personId
+      personId: this.personId,
+      clientId: this.clientId
     });
   }
 
@@ -142,7 +150,8 @@ class Loyalme {
       token: this.token,
       pointId: this.pointId,
       brandId: this.brandId,
-      personId: this.personId
+      personId: this.personId,
+      clientId: this.clientId
     });
   }
 
