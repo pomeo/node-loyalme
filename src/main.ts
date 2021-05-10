@@ -4,6 +4,7 @@
 import { client } from './api/client';
 import { category } from './api/category';
 import { product } from './api/product';
+import { order } from './api/order';
 import { activityList,
          fireEvent,
          cancelEvent } from './api/activity';
@@ -18,26 +19,23 @@ class Loyalme {
   brandId: number
   pointId: number
   personId: number
+  clientId: number
 
-  constructor(params: {
-    url: string
-    token: string
-    brandId: number
-    pointId: number
-    personId: number
-  }) {
+  constructor(params: ILoyalmeConfig) {
     const _params = params || {};
     if (!_params.url) throw new Error('Missing url');
     if (!_params.token) throw new Error('Missing token');
     if (isNaN(_params.brandId)) throw new Error('Missing brand id');
     if (isNaN(_params.pointId)) throw new Error('Missing point id');
     if (isNaN(_params.personId)) throw new Error('Missing person id');
+    if (isNaN(_params.clientId)) throw new Error('Missing client id');
 
     this.url = _params.url;
     this.token = _params.token;
     this.brandId = _params.brandId;
     this.pointId = _params.pointId;
     this.personId = _params.personId;
+    this.clientId = _params.clientId;
   }
 
   client(params: {
@@ -138,7 +136,7 @@ class Loyalme {
     });
   }
 
-  orderStatus(method: IParamsOrderStatus[]) {
+  orderStatus(status: IParamsOrderStatus[]) {
     return orderStatus(status, {
       url: this.url,
       token: this.token,
@@ -147,12 +145,17 @@ class Loyalme {
       personId: this.personId
     });
   }
+
+  order(orders: IParamsOrder[]) {
+    return order(orders, {
+      url: this.url,
+      token: this.token,
+      pointId: this.pointId,
+      brandId: this.brandId,
+      personId: this.personId,
+      clientId: this.clientId
+    });
+  }
 }
 
-export default (params: {
-  url: string
-  token: string
-  brandId: number
-  pointId: number
-  personId: number
-}) => new Loyalme(params);
+export default (params: ILoyalmeConfig) => new Loyalme(params);

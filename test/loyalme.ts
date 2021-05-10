@@ -18,9 +18,10 @@ describe('Loyalme', () => {
       (() => {
         const loyalme = Loyalme({
           token: 'qwerty',
-          brandId: 0,
-          pointId: 0,
-          personId: 0
+          brandId: 1,
+          pointId: 2,
+          personId: 3,
+          clientId: 4
         });
       }).should.throw('Missing url');
     });
@@ -31,35 +32,80 @@ describe('Loyalme', () => {
       (() => {
         const loyalme = Loyalme({
           url: 'google.com',
-          brandId: 0,
-          pointId: 0,
-          personId: 0
+          brandId: 1,
+          pointId: 2,
+          personId: 3,
+          clientId: 4
         });
       }).should.throw('Missing token');
     });
   });
 
   describe('Initialize without brandId', () => {
-    it('Should return "Missing brandId"', () => {
+    it('Should return "Missing brand id"', () => {
       (() => {
         const loyalme = Loyalme({
           url: 'google.com',
           token: 'qwerty',
-          pointId: 0,
-          personId: 0
+          pointId: 2,
+          personId: 3,
+          clientId: 4
         });
       }).should.throw('Missing brand id');
     });
   });
 
-  describe('Initialize with url, token, brandId, pointId, personId', () => {
+  describe('Initialize without pointId', () => {
+    it('Should return "Missing point id"', () => {
+      (() => {
+        const loyalme = Loyalme({
+          url: 'google.com',
+          token: 'qwerty',
+          brandId: 1,
+          personId: 3,
+          clientId: 4
+        });
+      }).should.throw('Missing point id');
+    });
+  });
+
+  describe('Initialize without personId', () => {
+    it('Should return "Missing person id"', () => {
+      (() => {
+        const loyalme = Loyalme({
+          url: 'google.com',
+          token: 'qwerty',
+          brandId: 1,
+          pointId: 2,
+          clientId: 4
+        });
+      }).should.throw('Missing person id');
+    });
+  });
+
+  describe('Initialize without clientId', () => {
+    it('Should return "Missing client id"', () => {
+      (() => {
+        const loyalme = Loyalme({
+          url: 'google.com',
+          token: 'qwerty',
+          brandId: 1,
+          pointId: 2,
+          personId: 3
+        });
+      }).should.throw('Missing client id');
+    });
+  });
+
+  describe('Initialize with url, token, brandId, pointId, personId, clientId', () => {
     it('Should return object', () => {
       const loyalme = Loyalme({
         url: 'google.com',
         token: 'qwerty',
-        brandId: 0,
-        pointId: 0,
-        personId: 0
+        brandId: 1,
+        pointId: 2,
+        personId: 3,
+        clientId: 4
       });
       assert.typeOf(loyalme, 'object');
     });

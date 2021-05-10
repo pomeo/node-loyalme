@@ -1,0 +1,23 @@
+{
+    "data": {
+        "id": 2,
+        "status": "update",
+        "person_id": 3,
+        "client_id": 4,
+        "point_id": 2,
+        "ext_order_id": "12345",
+        "payment_type": "",
+        "shipping_type": "",
+        "promo_code": "0",
+        "order_link": "",
+        "payment_status_id": null,
+        "amount": "10.00",
+        "products": [
+            {
+                "quantity": 1,
+                "product_id": 2,
+                "price": "10.00"
+            }
+        ]
+    }
+}

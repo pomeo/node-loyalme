@@ -15,7 +15,8 @@ describe('Category', () => {
     token: '12345',
     brandId: 1,
     pointId: 2,
-    personId: 3
+    personId: 3,
+    clientId: 4
   });
 
   describe('Search by external_id', () => {

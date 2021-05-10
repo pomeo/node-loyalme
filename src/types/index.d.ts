@@ -16,6 +16,7 @@ interface ILoyalmeConfig {
   pointId: number
   brandId: number
   personId: number
+  clientId: number
 }
 
 interface ILoyalmeBirthday {
@@ -415,4 +416,58 @@ interface IOrderStatusRequest {
   title_ru?: string
   slug?: string
   is_active?: number
+}
+
+interface IParamsOrder {
+  status?: string
+  person_id: number
+  client_id: number
+  point_id: number
+  ext_order_id?: number
+  extOrderId?: number
+  payment_type?: string
+  paymentType?: string
+  shipping_type?: string
+  shippingType?: string
+  promo_code?: string
+  promoCode?: string
+  order_link?: string
+  orderLink?: string
+  payment_status_id?: number
+  paymentStatusId?: number
+  products?: IOrderProduct[]
+}
+
+interface IOrderResponse extends ILoyalmeResponse {
+  data?: IOrderDataResponse[]
+}
+
+interface IOrderResponseOne extends ILoyalmeResponse {
+  data?: IOrderDataResponse
+}
+
+interface IOrderDataResponse {
+  id?: number
+  status?: string
+  person_id: number
+  client_id: number
+  point_id: number
+  ext_order_id: number
+  payment_type?: string
+  shipping_type?: string
+  promo_code?: string
+  order_link?: string
+  payment_status_id?: number
+  amount?: number
+  products?: IOrderProduct[]
+}
+
+interface IOrderProduct {
+  quantity: number
+  product_id: number
+  price: number
+}
+
+interface IOrderRequest extends IParamsOrder {
+  [index: string]: string | number | undefined | IOrderProduct[]
 }
