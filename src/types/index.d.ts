@@ -471,3 +471,87 @@ interface IOrderProduct {
 interface IOrderRequest extends IParamsOrder {
   [index: string]: string | number | undefined | IOrderProduct[]
 }
+
+interface IParamsDeliveryMethod {
+  title_en?: string
+  title_ru?: string
+  slug: string
+  is_active?: number
+}
+
+interface IDeliveryMethodResponse extends ILoyalmeResponse {
+  data?: IDeliveryMethodDataResponse[]
+}
+
+interface IDeliveryMethodResponseOne extends ILoyalmeResponse {
+  data?: IDeliveryMethodDataResponse
+}
+
+interface IDeliveryMethodDataResponse {
+  id: number
+  title_en: string
+  title_ru: string
+  slug: string
+  is_active: number
+  created_at: {
+    date: string
+    timezone_type: number
+    timezone: string
+  }
+  updated_at: {
+    date: string
+    timezone_type: number
+    timezone: string
+  }
+}
+
+interface IDeliveryMethodRequest {
+  [index: string]: string | number | undefined
+  title_en?: string
+  title_ru?: string
+  slug?: string
+  is_active?: number
+}
+
+//////////////////
+
+interface IParamsPromocode {
+  title_en?: string
+  title_ru?: string
+  slug: string
+  is_active?: number
+}
+
+interface IPromocodeResponse extends ILoyalmeResponse {
+  data?: IPromocodeDataResponse[]
+}
+
+interface IPromocodeResponseOne extends ILoyalmeResponse {
+  data?: IPromocodeDataResponse
+}
+
+interface IPromocodeDataResponse {
+  id: number
+  title_en: string
+  title_ru: string
+  slug: string
+  is_active: number
+  created_at: {
+    date: string
+    timezone_type: number
+    timezone: string
+  }
+  updated_at: {
+    date: string
+    timezone_type: number
+    timezone: string
+  }
+}
+
+interface IPromocodeRequest {
+  [index: string]: string | number | undefined
+  title_en?: string
+  title_ru?: string
+  slug?: string
+  is_active?: number
+}

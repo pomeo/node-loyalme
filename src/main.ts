@@ -11,6 +11,7 @@ import { activityList,
 import { paymentStatus } from './api/paymentStatus';
 import { paymentMethod } from './api/paymentMethod';
 import { orderStatus } from './api/orderStatus';
+import { deliveryMethod } from './api/deliveryMethod';
 
 class Loyalme {
 
@@ -157,6 +158,17 @@ class Loyalme {
 
   order(orders: IParamsOrder[]) {
     return order(orders, {
+      url: this.url,
+      token: this.token,
+      pointId: this.pointId,
+      brandId: this.brandId,
+      personId: this.personId,
+      clientId: this.clientId
+    });
+  }
+
+  deliveryMethod(delivery: IParamsDeliveryMethod[]) {
+    return deliveryMethod(delivery, {
       url: this.url,
       token: this.token,
       pointId: this.pointId,
