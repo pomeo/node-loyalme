@@ -162,15 +162,13 @@ async function createResponse(params: IParamsClient,
   }
 }
 
-async function mergeClient(params: {
+export async function clientFingerprint(params: {
   id: number
   fingerprint: string
-  token: string
-  url: string
-}): Promise<Response<IClientMergeResponse>> {
+}, config: ILoyalmeConfig): Promise<Response<IClientMergeResponse>> {
   const gotOptions = Object.assign({}, reqOptions);
-  gotOptions.headers!.Authorization = `Bearer ${params.token}`;
-  return await got.post(`https://${params.url}${api}/${params.id}/merge/${params.fingerprint}`, gotOptions);
+  gotOptions.headers!.Authorization = `Bearer ${config.token}`;
+  return await got.post(`https://${config.url}${api}/${params.id}/merge/${params.fingerprint}`, gotOptions);
 }
 
 async function checkMerge(params: IParamsClient,
@@ -180,12 +178,10 @@ async function checkMerge(params: IParamsClient,
     const { client_hash, id } = clientResponse;
     let hash = client_hash!.find(o => o.client_hash === params.fingerprint);
     if (typeof hash === 'undefined') {
-      await mergeClient({
+      await clientFingerprint({
         id,
         fingerprint: params.fingerprint,
-        token: config.token,
-        url: config.url
-      })
+      }, config)
       const res = await getClientByFingerprint(params, config);
       return await createResponse(params, res, config);
     }

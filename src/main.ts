@@ -1,7 +1,8 @@
 /**
  * cspell:ignore Loyalme
  */
-import { client } from './api/client';
+import { client,
+         clientFingerprint } from './api/client';
 import { category } from './api/category';
 import { product } from './api/product';
 import { order } from './api/order';
@@ -40,25 +41,22 @@ class Loyalme {
     this.clientId = _params.clientId;
   }
 
-  client(params: {
-    externalId?: string
-    email?: string
-    phone?: string
-    name?: string
-    middleName?: string
-    lastName?: string
-    fingerprint?: string
-    birthdate?: string
-    gender?: 0 | 1
-    otherPhones?: string[]
-    otherPhonesValidate?: number[]
-    otherPhonesSubscribe?: number[]
-    otherEmails?: string[]
-    otherEmailsValidate?: number[]
-    otherEmailsSubscribe?: number[]
-    attribute?: { [key: string]: string }
-  }) {
+  client(params: IParamsClient) {
     return client(params, {
+      url: this.url,
+      token: this.token,
+      pointId: this.pointId,
+      brandId: this.brandId,
+      personId: this.personId,
+      clientId: this.clientId
+    });
+  }
+
+  clientFingerprint(params: {
+    id: number
+    fingerprint: string
+  }) {
+    return clientFingerprint(params, {
       url: this.url,
       token: this.token,
       pointId: this.pointId,
