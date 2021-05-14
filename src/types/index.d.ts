@@ -516,10 +516,13 @@ interface IDeliveryMethodRequest {
 //////////////////
 
 interface IParamsPromocode {
-  title_en?: string
-  title_ru?: string
-  slug: string
-  is_active?: number
+  code?: string
+  activeFrom?: string
+  activeTo: string
+  active_from?: string
+  active_to: string
+  status?: 'is_active' | 'is_issued' | 'is_used' | 'is_inactive' | 'deleted'
+  description?: string
 }
 
 interface IPromocodeResponse extends ILoyalmeResponse {

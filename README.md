@@ -99,7 +99,14 @@ loyalme.cancelEvent()
 ### [loyalme.fireEvent](https://pomeo.github.io/node-loyalme/modules/api_activity.html)
 
 ```js
-loyalme.fireEvent()
+loyalme.fireEvent({
+  clientHash: '1234567890',
+  activityKey: 'PageVisited',
+  activityAttributes: [{
+    key: 'attribute',
+    value: '123'
+  }]
+})
 .then(output => {
   console.info(output);
 }).catch(err => {
@@ -110,9 +117,16 @@ loyalme.fireEvent()
 ### [loyalme.deliveryMethod](https://pomeo.github.io/node-loyalme/modules/api_deliverymethod.html)
 
 ```js
-loyalme.deliveryMethod({
-  
-}).then(output => {
+loyalme.deliveryMethod([{
+  title_en: 'MethodName1',
+  slug: 'name1',
+  is_active: 1
+}, {
+  title_en: 'MathodName2',
+  title_ru: 'ИмяМетода',
+  slug: 'name2',
+  is_active: 1
+}]).then(output => {
   console.info(output);
 }).catch(err => {
   console.error(err);
@@ -207,13 +221,13 @@ loyalme.paymentStatus([{
 ### [loyalme.promocode](https://pomeo.github.io/node-loyalme/modules/api_promocode.html)
 
 ```js
-loyalme.promocode({
-  code: 123,
+loyalme.promocode([{
+  code: '123',
   activeFrom: '2021-01-01 12:01:30',
   activeTo: '2021-01-14 18:11:35',
   status: 'is_active',
   description: 'content'
-}).then(output => {
+}]).then(output => {
   console.info(output);
 }).catch(err => {
   console.error(err);

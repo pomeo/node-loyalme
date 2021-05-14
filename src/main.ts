@@ -11,6 +11,7 @@ import { activityList,
 import { paymentStatus } from './api/paymentStatus';
 import { paymentMethod } from './api/paymentMethod';
 import { orderStatus } from './api/orderStatus';
+import { promocode } from './api/promocode';
 import { deliveryMethod } from './api/deliveryMethod';
 
 class Loyalme {
@@ -147,6 +148,17 @@ class Loyalme {
 
   orderStatus(status: IParamsOrderStatus[]) {
     return orderStatus(status, {
+      url: this.url,
+      token: this.token,
+      pointId: this.pointId,
+      brandId: this.brandId,
+      personId: this.personId,
+      clientId: this.clientId
+    });
+  }
+
+  promocode(promo: IParamsPromocode[]) {
+    return promocode(promo, {
       url: this.url,
       token: this.token,
       pointId: this.pointId,
