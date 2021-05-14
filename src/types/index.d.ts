@@ -513,14 +513,12 @@ interface IDeliveryMethodRequest {
   is_active?: number
 }
 
-//////////////////
-
 interface IParamsPromocode {
   code?: string
   activeFrom?: string
-  activeTo: string
+  activeTo?: string
   active_from?: string
-  active_to: string
+  active_to?: string
   status?: 'is_active' | 'is_issued' | 'is_used' | 'is_inactive' | 'deleted'
   description?: string
 }
@@ -535,10 +533,11 @@ interface IPromocodeResponseOne extends ILoyalmeResponse {
 
 interface IPromocodeDataResponse {
   id: number
-  title_en: string
-  title_ru: string
-  slug: string
-  is_active: number
+  code: string
+  active_from: string
+  active_to: string
+  status: 'is_active' | 'is_issued' | 'is_used' | 'is_inactive' | 'deleted'
+  description: string
   created_at: {
     date: string
     timezone_type: number
@@ -553,8 +552,11 @@ interface IPromocodeDataResponse {
 
 interface IPromocodeRequest {
   [index: string]: string | number | undefined
-  title_en?: string
-  title_ru?: string
-  slug?: string
-  is_active?: number
+  code?: string
+  activeFrom?: string
+  activeTo?: string
+  active_from?: string
+  active_to?: string
+  status?: 'is_active' | 'is_issued' | 'is_used' | 'is_inactive' | 'deleted'
+  description?: string
 }
