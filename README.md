@@ -42,6 +42,19 @@ loyalme.client({
 });
 ```
 
+### [loyalme.clientFingerprint](https://pomeo.github.io/node-loyalme/modules/api_client.html#clientfingerprint)
+
+```js
+loyalme.clientFingerprint({
+  id: 12345,
+  fingerprint: 'abcdefg'
+}).then(output => {
+  console.info(output);
+}).catch(err => {
+  console.error(err);
+});
+```
+
 ### [loyalme.product](https://pomeo.github.io/node-loyalme/modules/api_product.html)
 
 ```js

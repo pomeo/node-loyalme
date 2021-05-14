@@ -78,11 +78,14 @@
 <span style="color: #000000">  </span><span style="color: #001080">token:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;token&#039;</span><span style="color: #000000">,</span>
 <span style="color: #000000">  </span><span style="color: #001080">brandId:</span><span style="color: #000000"> </span><span style="color: #098658">1</span><span style="color: #000000">,</span>
 <span style="color: #000000">  </span><span style="color: #001080">pointId:</span><span style="color: #000000"> </span><span style="color: #098658">2</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">personId:</span><span style="color: #000000"> </span><span style="color: #098658">3</span>
+<span style="color: #000000">  </span><span style="color: #001080">personId:</span><span style="color: #000000"> </span><span style="color: #098658">3</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">clientId:</span><span style="color: #000000"> </span><span style="color: #098658">4</span>
 <span style="color: #000000">});</span>
-
-<span style="color: #008000">// Get things done</span>
-<span style="color: #001080">loyalme</span><span style="color: #000000">.</span><span style="color: #795E26">client</span><span style="color: #000000">({</span>
+</code></pre>
+				<a href="#loyalmeclient" id="loyalmeclient" style="color: inherit; text-decoration: none;">
+					<h3><a href="https://pomeo.github.io/node-loyalme/modules/api_client.html">loyalme.client</a></h3>
+				</a>
+				<pre><code class="language-js"><span style="color: #001080">loyalme</span><span style="color: #000000">.</span><span style="color: #795E26">client</span><span style="color: #000000">({</span>
 <span style="color: #000000">  </span><span style="color: #001080">externalId:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;12345&#039;</span><span style="color: #000000">,</span>
 <span style="color: #000000">  </span><span style="color: #001080">email:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;user@email.com&#039;</span><span style="color: #000000">,</span>
 <span style="color: #000000">  </span><span style="color: #001080">phone:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;1111111111&#039;</span><span style="color: #000000">,</span>
@@ -90,6 +93,187 @@
 <span style="color: #000000">  </span><span style="color: #001080">lastName:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;Userlastname&#039;</span><span style="color: #000000">,</span>
 <span style="color: #000000">  </span><span style="color: #001080">birthdate:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;2000-01-03&#039;</span>
 <span style="color: #000000">}).</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000">);</span>
+<span style="color: #000000">}).</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000">);</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<a href="#loyalmeproduct" id="loyalmeproduct" style="color: inherit; text-decoration: none;">
+					<h3><a href="https://pomeo.github.io/node-loyalme/modules/api_product.html">loyalme.product</a></h3>
+				</a>
+				<pre><code class="language-js"><span style="color: #001080">loyalme</span><span style="color: #000000">.</span><span style="color: #795E26">product</span><span style="color: #000000">([{</span>
+<span style="color: #000000">  </span><span style="color: #001080">title:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;ProductName&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">extItemId:</span><span style="color: #000000"> </span><span style="color: #098658">123456</span>
+<span style="color: #000000">}], [{</span>
+<span style="color: #000000">  </span><span style="color: #001080">name:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;CategoryName&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">externalId:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;123456&#039;</span>
+<span style="color: #000000">}]).</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000">);</span>
+<span style="color: #000000">}).</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000">);</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<a href="#loyalmecategory" id="loyalmecategory" style="color: inherit; text-decoration: none;">
+					<h3><a href="https://pomeo.github.io/node-loyalme/modules/api_category.html">loyalme.category</a></h3>
+				</a>
+				<pre><code class="language-js"><span style="color: #001080">loyalme</span><span style="color: #000000">.</span><span style="color: #795E26">category</span><span style="color: #000000">([{</span>
+<span style="color: #000000">  </span><span style="color: #001080">name:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;CategoryName1&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">externalId:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;123456&#039;</span>
+<span style="color: #000000">}, {</span>
+<span style="color: #000000">  </span><span style="color: #001080">name:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;CategoryName2&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">externalId:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;1234567&#039;</span>
+<span style="color: #000000">}]).</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000">);</span>
+<span style="color: #000000">}).</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000">);</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<a href="#loyalmeactivitylist" id="loyalmeactivitylist" style="color: inherit; text-decoration: none;">
+					<h3><a href="https://pomeo.github.io/node-loyalme/modules/api_activity.html">loyalme.activityList</a></h3>
+				</a>
+				<pre><code class="language-js"><span style="color: #001080">loyalme</span><span style="color: #000000">.</span><span style="color: #795E26">activityList</span><span style="color: #000000">()</span>
+<span style="color: #000000">.</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000">);</span>
+<span style="color: #000000">}).</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000">);</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<a href="#loyalmecancelevent" id="loyalmecancelevent" style="color: inherit; text-decoration: none;">
+					<h3><a href="https://pomeo.github.io/node-loyalme/modules/api_activity.html">loyalme.cancelEvent</a></h3>
+				</a>
+				<pre><code class="language-js"><span style="color: #001080">loyalme</span><span style="color: #000000">.</span><span style="color: #795E26">cancelEvent</span><span style="color: #000000">()</span>
+<span style="color: #000000">.</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000">);</span>
+<span style="color: #000000">}).</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000">);</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<a href="#loyalmefireevent" id="loyalmefireevent" style="color: inherit; text-decoration: none;">
+					<h3><a href="https://pomeo.github.io/node-loyalme/modules/api_activity.html">loyalme.fireEvent</a></h3>
+				</a>
+				<pre><code class="language-js"><span style="color: #001080">loyalme</span><span style="color: #000000">.</span><span style="color: #795E26">fireEvent</span><span style="color: #000000">({</span>
+<span style="color: #000000">  </span><span style="color: #001080">clientHash:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;1234567890&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">activityKey:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;PageVisited&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">activityAttributes:</span><span style="color: #000000"> [{</span>
+<span style="color: #000000">    </span><span style="color: #001080">key:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;attribute&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">value:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;123&#039;</span>
+<span style="color: #000000">  }]</span>
+<span style="color: #000000">})</span>
+<span style="color: #000000">.</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000">);</span>
+<span style="color: #000000">}).</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000">);</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<a href="#loyalmedeliverymethod" id="loyalmedeliverymethod" style="color: inherit; text-decoration: none;">
+					<h3><a href="https://pomeo.github.io/node-loyalme/modules/api_deliverymethod.html">loyalme.deliveryMethod</a></h3>
+				</a>
+				<pre><code class="language-js"><span style="color: #001080">loyalme</span><span style="color: #000000">.</span><span style="color: #795E26">deliveryMethod</span><span style="color: #000000">([{</span>
+<span style="color: #000000">  </span><span style="color: #001080">title_en:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;MethodName1&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">slug:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;name1&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">is_active:</span><span style="color: #000000"> </span><span style="color: #098658">1</span>
+<span style="color: #000000">}, {</span>
+<span style="color: #000000">  </span><span style="color: #001080">title_en:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;MathodName2&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">title_ru:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;ИмяМетода&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">slug:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;name2&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">is_active:</span><span style="color: #000000"> </span><span style="color: #098658">1</span>
+<span style="color: #000000">}]).</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000">);</span>
+<span style="color: #000000">}).</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000">);</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<a href="#loyalmeorder" id="loyalmeorder" style="color: inherit; text-decoration: none;">
+					<h3><a href="https://pomeo.github.io/node-loyalme/modules/api_order.html">loyalme.order</a></h3>
+				</a>
+				<pre><code class="language-js"><span style="color: #001080">loyalme</span><span style="color: #000000">.</span><span style="color: #795E26">order</span><span style="color: #000000">([{</span>
+<span style="color: #000000">  </span><span style="color: #001080">status:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;new&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">extOrderId:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;123&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">amount:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;10.00&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">products:</span><span style="color: #000000"> [{</span>
+<span style="color: #000000">    </span><span style="color: #001080">quantity:</span><span style="color: #000000"> </span><span style="color: #098658">1</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">product_id:</span><span style="color: #000000"> </span><span style="color: #098658">2</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">price:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;10.00&#039;</span>
+<span style="color: #000000">  }]</span>
+<span style="color: #000000">}, {</span>
+<span style="color: #000000">  </span><span style="color: #001080">status:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;new&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">extOrderId:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;12345&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">amount:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;10.00&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">products:</span><span style="color: #000000"> [{</span>
+<span style="color: #000000">    </span><span style="color: #001080">quantity:</span><span style="color: #000000"> </span><span style="color: #098658">1</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">product_id:</span><span style="color: #000000"> </span><span style="color: #098658">2</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">price:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;10.00&#039;</span>
+<span style="color: #000000">  }]</span>
+<span style="color: #000000">}]).</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000">);</span>
+<span style="color: #000000">}).</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000">);</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<a href="#loyalmeorderstatus" id="loyalmeorderstatus" style="color: inherit; text-decoration: none;">
+					<h3><a href="https://pomeo.github.io/node-loyalme/modules/api_orderstatus.html">loyalme.orderStatus</a></h3>
+				</a>
+				<pre><code class="language-js"><span style="color: #001080">loyalme</span><span style="color: #000000">.</span><span style="color: #795E26">orderStatus</span><span style="color: #000000">([{</span>
+<span style="color: #000000">  </span><span style="color: #001080">title_en:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;StatusName1&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">slug:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;name1&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">is_active:</span><span style="color: #000000"> </span><span style="color: #098658">1</span>
+<span style="color: #000000">}, {</span>
+<span style="color: #000000">  </span><span style="color: #001080">title_en:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;StatusName2&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">title_ru:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;ИмяСтатуса&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">slug:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;name2&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">is_active:</span><span style="color: #000000"> </span><span style="color: #098658">1</span>
+<span style="color: #000000">}]).</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000">);</span>
+<span style="color: #000000">}).</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000">);</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<a href="#loyalmepaymentmethod" id="loyalmepaymentmethod" style="color: inherit; text-decoration: none;">
+					<h3><a href="https://pomeo.github.io/node-loyalme/modules/api_paymentmethod.html">loyalme.paymentMethod</a></h3>
+				</a>
+				<pre><code class="language-js"><span style="color: #001080">loyalme</span><span style="color: #000000">.</span><span style="color: #795E26">paymentMethod</span><span style="color: #000000">([{</span>
+<span style="color: #000000">  </span><span style="color: #001080">title_en:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;MethodName1&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">slug:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;name1&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">is_active:</span><span style="color: #000000"> </span><span style="color: #098658">1</span>
+<span style="color: #000000">}, {</span>
+<span style="color: #000000">  </span><span style="color: #001080">title_en:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;MathodName2&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">title_ru:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;ИмяМетода&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">slug:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;name2&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">is_active:</span><span style="color: #000000"> </span><span style="color: #098658">1</span>
+<span style="color: #000000">}]).</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000">);</span>
+<span style="color: #000000">}).</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000">);</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<a href="#loyalmepaymentstatus" id="loyalmepaymentstatus" style="color: inherit; text-decoration: none;">
+					<h3><a href="https://pomeo.github.io/node-loyalme/modules/api_paymentstatus.html">loyalme.paymentStatus</a></h3>
+				</a>
+				<pre><code class="language-js"><span style="color: #001080">loyalme</span><span style="color: #000000">.</span><span style="color: #795E26">paymentStatus</span><span style="color: #000000">([{</span>
+<span style="color: #000000">  </span><span style="color: #001080">title_en:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;StatusName1&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">slug:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;name1&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">is_active:</span><span style="color: #000000"> </span><span style="color: #098658">1</span>
+<span style="color: #000000">}, {</span>
+<span style="color: #000000">  </span><span style="color: #001080">title_en:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;StatusName2&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">title_ru:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;ИмяСтатуса&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">slug:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;name2&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">is_active:</span><span style="color: #000000"> </span><span style="color: #098658">1</span>
+<span style="color: #000000">}]).</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000">);</span>
+<span style="color: #000000">}).</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000">);</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<a href="#loyalmepromocode" id="loyalmepromocode" style="color: inherit; text-decoration: none;">
+					<h3><a href="https://pomeo.github.io/node-loyalme/modules/api_promocode.html">loyalme.promocode</a></h3>
+				</a>
+				<pre><code class="language-js"><span style="color: #001080">loyalme</span><span style="color: #000000">.</span><span style="color: #795E26">promocode</span><span style="color: #000000">([{</span>
+<span style="color: #000000">  </span><span style="color: #001080">code:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;123&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">activeFrom:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;2021-01-01 12:01:30&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">activeTo:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;2021-01-14 18:11:35&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">status:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;is_active&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">description:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;content&#039;</span>
+<span style="color: #000000">}]).</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
 <span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000">);</span>
 <span style="color: #000000">}).</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
 <span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000">);</span>
