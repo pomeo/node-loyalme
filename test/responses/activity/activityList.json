@@ -1,0 +1,31 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "Order created",
+            "system_name": "ordercreated",
+            "parent_id": null,
+            "parent_system_name": "",
+            "description": "Создан заказ",
+            "example": "Создан заказ",
+            "attributes": [
+                {
+                    "id": 1,
+                    "operation_id": 1,
+                    "name": "Тип оплаты",
+                    "system_name": "type_of_pay",
+                    "type": 0,
+                    "from_parent": 0
+                },
+                {
+                    "id": 2,
+                    "operation_id": 1,
+                    "name": "Сумма заказа",
+                    "system_name": "order_sum",
+                    "type": 1,
+                    "from_parent": 0
+                }
+            ]
+        }
+    ]
+}

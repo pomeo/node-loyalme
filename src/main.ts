@@ -52,10 +52,7 @@ class Loyalme {
     });
   }
 
-  clientFingerprint(params: {
-    id: number
-    fingerprint: string
-  }) {
+  clientFingerprint(params: IParamsClientFingerprint) {
     return clientFingerprint(params, {
       url: this.url,
       token: this.token,
@@ -100,8 +97,8 @@ class Loyalme {
     });
   }
 
-  cancelEvent() {
-    return cancelEvent({
+  cancelEvent(params: IParamsCancelEvent) {
+    return cancelEvent(params, {
       url: this.url,
       token: this.token,
       pointId: this.pointId,
@@ -111,8 +108,8 @@ class Loyalme {
     });
   }
 
-  fireEvent() {
-    return fireEvent({
+  fireEvent(params: IParamsFireEvent) {
+    return fireEvent(params, {
       url: this.url,
       token: this.token,
       pointId: this.pointId,
