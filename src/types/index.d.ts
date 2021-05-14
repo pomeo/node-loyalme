@@ -632,3 +632,17 @@ interface IActivityListDataResponse {
     type: number
   }[]
 }
+
+interface ICancelEventRequest {
+  client_id?: number
+  external_id?: string
+  client_hash?: string
+  activity_key?: string
+}
+
+interface IParamsCancelEvent extends ICancelEventRequest {
+  clientId?: number
+  externalId?: string
+  clientHash?: string
+  activityKey?: string
+}
