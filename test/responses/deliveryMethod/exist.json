@@ -1,0 +1,9 @@
+{
+    "message": "Could not create new category",
+    "errors": {
+        "external_id": [
+            "Такое значение поля external id уже существует."
+        ]
+    },
+    "status_code": 422
+}
