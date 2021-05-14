@@ -1,7 +1,7 @@
 {
   "name": "loyalme",
   "homepage": "https://github.com/pomeo/loyalme",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Loyalme module for node.js",
   "keywords": [
     "loyalme",
@@ -59,7 +59,8 @@
     "lint": "./node_modules/.bin/eslint \"{src,test}/**/*.{ts}\"",
     "format": "./node_modules/.bin/prettier --write \"**/*.{ts,json,md,yml}\"",
     "docs": "./node_modules/.bin/typedoc ./src/main.ts ./src/api/ ./src/types",
-    "build": "./node_modules/.bin/tsc"
+    "build": "./node_modules/.bin/tsc",
+    "prepublish": "npm run build"
   },
   "bugs": {
     "url": "https://github.com/pomeo/loyalme/issues"
