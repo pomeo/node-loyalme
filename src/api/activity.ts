@@ -9,28 +9,93 @@ const reqOptions: OptionsOfJSONResponseBody = {
   throwHttpErrors: false
 }
 
-async function getActivity(params: {
-  key: string
-  token: string
-  url: string
-}): Promise<Response<IClientResponse>> {
+async function getActivity(config: ILoyalmeConfig): Promise<IActivityListDataResponse[] | undefined> {
   const gotOptions = Object.assign({}, reqOptions);
-  gotOptions.headers!.Authorization = `Bearer ${params.token}`;
-  return await got.get(`https://${params.url}${api}`, gotOptions);
+  gotOptions.headers!.Authorization = `Bearer ${config.token}`;
+  const response = await got.get(`https://${config.url}${api}/list`, gotOptions) as Response<IActivityListResponse>;
+  return response.body.data;
 }
 
 export async function activityList(config: ILoyalmeConfig) {
-  return await getActivity({
-    key: 'list',
-    token: config.token,
-    url: config.url
-  })
+  return await getActivity(config)
 }
 
-export async function fireEvent(config: ILoyalmeConfig) {
-  return null;
+export async function fireEvent(params: IParamsFireEvent,
+                                config: ILoyalmeConfig): Promise<IFireEventDataResponse | undefined> {
+  const reqObject: IFireEventRequest = {};
+  if (params.clientId !== undefined) {
+    reqObject.client_id = params.clientId;
+  }
+  if (params.client_id !== undefined) {
+    reqObject.client_id = params.client_id;
+  }
+  if (params.clientHash) {
+    reqObject.client_hash = params.clientHash;
+  }
+  if (params.client_hash) {
+    reqObject.client_hash = params.client_hash;
+  }
+  if (params.externalId) {
+    reqObject.external_id = params.externalId;
+  }
+  if (params.external_id) {
+    reqObject.external_id = params.external_id;
+  }
+  if (params.activityKey) {
+    reqObject.activity_key = params.activityKey;
+  }
+  if (params.activity_key) {
+    reqObject.activity_key = params.activity_key;
+  }
+  if (params.activityCreatedAt) {
+    reqObject.activity_created_at = params.activityCreatedAt;
+  }
+  if (params.activity_created_at) {
+    reqObject.activity_created_at = params.activity_created_at;
+  }
+  if (params.activityAttributes) {
+    reqObject.activity_attributes = params.activityAttributes;
+  }
+  if (params.activity_attributes) {
+    reqObject.activity_attributes = params.activity_attributes;
+  }
+  const gotOptions = Object.assign({}, reqOptions);
+  gotOptions.headers!.Authorization = `Bearer ${config.token}`;
+  gotOptions.json = reqObject;
+  const response = await got.post(`https://${config.url}${api}/fire-event`, gotOptions) as Response<IFireEventResponse>;
+  return response.body.data;
 }
 
-export async function cancelEvent(config: ILoyalmeConfig) {
-  return null;
+export async function cancelEvent(params: IParamsCancelEvent,
+                                  config: ILoyalmeConfig) {
+  const reqObject: ICancelEventRequest = {};
+  if (params.clientId !== undefined) {
+    reqObject.client_id = params.clientId;
+  }
+  if (params.client_id !== undefined) {
+    reqObject.client_id = params.client_id;
+  }
+  if (params.clientHash) {
+    reqObject.client_hash = params.clientHash;
+  }
+  if (params.client_hash) {
+    reqObject.client_hash = params.client_hash;
+  }
+  if (params.externalId) {
+    reqObject.external_id = params.externalId;
+  }
+  if (params.external_id) {
+    reqObject.external_id = params.external_id;
+  }
+  if (params.activityKey) {
+    reqObject.activity_key = params.activityKey;
+  }
+  if (params.activity_key) {
+    reqObject.activity_key = params.activity_key;
+  }
+  const gotOptions = Object.assign({}, reqOptions);
+  gotOptions.headers!.Authorization = `Bearer ${config.token}`;
+  gotOptions.json = reqObject;
+  const response = await got.post(`https://${config.url}${api}/cancel-event`, gotOptions) as Response<any>;
+  return response.body.data;
 }

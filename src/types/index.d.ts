@@ -560,3 +560,89 @@ interface IPromocodeRequest {
   status?: 'is_active' | 'is_issued' | 'is_used' | 'is_inactive' | 'deleted'
   description?: string
 }
+
+interface IParamsClientFingerprint {
+  id: number
+  fingerprint: string
+}
+
+interface IParamsCancelEvent {
+  clientHash?: string
+  activityKey?: string
+  externalId?: string
+  client_hash?: string
+  activity_key?: string
+  external_id?: string
+}
+
+interface IFireEventRequest {
+  client_id?: number
+  external_id?: string
+  client_hash?: string
+  activity_key?: string
+  activity_created_at?: string
+  activity_attributes?: {
+    order_comment?: string
+  }
+}
+
+interface IParamsFireEvent extends IFireEventRequest {
+  clientId?: number
+  externalId?: string
+  clientHash?: string
+  activityKey?: string
+  activityCreatedAt?: string
+  activityAttributes?: {
+    order_comment?: string
+    orderComment?: string
+  }
+}
+
+interface IFireEventResponse extends ILoyalmeResponse {
+  data?: IFireEventDataResponse
+}
+
+interface IFireEventDataResponse {
+  id: number
+  client_id: number
+  external_id: number
+  client_hash: string
+  activity_key: string
+  activity_created_at: string
+}
+
+interface IActivityListResponse extends ILoyalmeResponse {
+  data?: IActivityListDataResponse[]
+}
+
+interface IActivityListDataResponse {
+  id: number
+  name: string
+  system_name: string
+  parent_id: number
+  parent_system_name: string
+  description: string
+  example: string
+  attributes: {
+    id: number
+    operation_id: number
+    name: string
+    system_name: string
+    from_parent: number
+    type: number
+  }[]
+}
+
+interface ICancelEventRequest {
+  client_id?: number
+  external_id?: string
+  client_hash?: string
+  activity_key?: string
+}
+
+interface IParamsCancelEvent extends ICancelEventRequest {
+  clientId?: number
+  externalId?: string
+  clientHash?: string
+  activityKey?: string
+}

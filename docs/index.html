@@ -98,6 +98,18 @@
 <span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000">);</span>
 <span style="color: #000000">});</span>
 </code></pre>
+				<a href="#loyalmeclientfingerprint" id="loyalmeclientfingerprint" style="color: inherit; text-decoration: none;">
+					<h3><a href="https://pomeo.github.io/node-loyalme/modules/api_client.html#clientfingerprint">loyalme.clientFingerprint</a></h3>
+				</a>
+				<pre><code class="language-js"><span style="color: #001080">loyalme</span><span style="color: #000000">.</span><span style="color: #795E26">clientFingerprint</span><span style="color: #000000">({</span>
+<span style="color: #000000">  </span><span style="color: #001080">id:</span><span style="color: #000000"> </span><span style="color: #098658">12345</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">fingerprint:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;abcdefg&#039;</span>
+<span style="color: #000000">}).</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000">);</span>
+<span style="color: #000000">}).</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000">);</span>
+<span style="color: #000000">});</span>
+</code></pre>
 				<a href="#loyalmeproduct" id="loyalmeproduct" style="color: inherit; text-decoration: none;">
 					<h3><a href="https://pomeo.github.io/node-loyalme/modules/api_product.html">loyalme.product</a></h3>
 				</a>
@@ -141,7 +153,11 @@
 				<a href="#loyalmecancelevent" id="loyalmecancelevent" style="color: inherit; text-decoration: none;">
 					<h3><a href="https://pomeo.github.io/node-loyalme/modules/api_activity.html">loyalme.cancelEvent</a></h3>
 				</a>
-				<pre><code class="language-js"><span style="color: #001080">loyalme</span><span style="color: #000000">.</span><span style="color: #795E26">cancelEvent</span><span style="color: #000000">()</span>
+				<pre><code class="language-js"><span style="color: #001080">loyalme</span><span style="color: #000000">.</span><span style="color: #795E26">cancelEvent</span><span style="color: #000000">({</span>
+<span style="color: #000000">  </span><span style="color: #001080">clientId:</span><span style="color: #000000"> </span><span style="color: #098658">123</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">clientHash:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;1a42949f6c7d805112543a98203bac42&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">activityKey:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;ordercreated&#039;</span>
+<span style="color: #000000">})</span>
 <span style="color: #000000">.</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
 <span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000">);</span>
 <span style="color: #000000">}).</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
@@ -152,12 +168,10 @@
 					<h3><a href="https://pomeo.github.io/node-loyalme/modules/api_activity.html">loyalme.fireEvent</a></h3>
 				</a>
 				<pre><code class="language-js"><span style="color: #001080">loyalme</span><span style="color: #000000">.</span><span style="color: #795E26">fireEvent</span><span style="color: #000000">({</span>
-<span style="color: #000000">  </span><span style="color: #001080">clientHash:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;1234567890&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">activityKey:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;PageVisited&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">activityAttributes:</span><span style="color: #000000"> [{</span>
-<span style="color: #000000">    </span><span style="color: #001080">key:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;attribute&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">    </span><span style="color: #001080">value:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;123&#039;</span>
-<span style="color: #000000">  }]</span>
+<span style="color: #000000">  </span><span style="color: #001080">clientId:</span><span style="color: #000000"> </span><span style="color: #098658">123</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">clientHash:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;1a42949f6c7d805112543a98203bac42&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">activityKey:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;ordercreated&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">activityCreatedAt:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;2020-01-15 12:01:05&#039;</span>
 <span style="color: #000000">})</span>
 <span style="color: #000000">.</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
 <span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000">);</span>

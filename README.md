@@ -101,7 +101,11 @@ loyalme.activityList()
 ### [loyalme.cancelEvent](https://pomeo.github.io/node-loyalme/modules/api_activity.html)
 
 ```js
-loyalme.cancelEvent()
+loyalme.cancelEvent({
+  clientId: 123,
+  clientHash: '1a42949f6c7d805112543a98203bac42',
+  activityKey: 'ordercreated'
+})
 .then(output => {
   console.info(output);
 }).catch(err => {
@@ -113,12 +117,10 @@ loyalme.cancelEvent()
 
 ```js
 loyalme.fireEvent({
-  clientHash: '1234567890',
-  activityKey: 'PageVisited',
-  activityAttributes: [{
-    key: 'attribute',
-    value: '123'
-  }]
+  clientId: 123,
+  clientHash: '1a42949f6c7d805112543a98203bac42',
+  activityKey: 'ordercreated',
+  activityCreatedAt: '2020-01-15 12:01:05'
 })
 .then(output => {
   console.info(output);
