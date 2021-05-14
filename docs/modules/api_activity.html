@@ -86,13 +86,13 @@
 					<a name="activitylist" class="tsd-anchor"></a>
 					<h3>activity<wbr>List</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">activity<wbr>List<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="../interfaces/types.iloyalmeconfig.html" class="tsd-signature-type" data-tsd-kind="Interface">ILoyalmeConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Response</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/types.iclientresponse.html" class="tsd-signature-type" data-tsd-kind="Interface">IClientResponse</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">activity<wbr>List<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="../interfaces/types.iloyalmeconfig.html" class="tsd-signature-type" data-tsd-kind="Interface">ILoyalmeConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/types.iactivitylistdataresponse.html" class="tsd-signature-type" data-tsd-kind="Interface">IActivityListDataResponse</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pomeo/node-loyalme/blob/30759b7/src/api/activity.ts#L22">api/activity.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/pomeo/node-loyalme/blob/45b8b94/src/api/activity.ts#L19">api/activity.ts:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -101,7 +101,7 @@
 									<h5>config: <a href="../interfaces/types.iloyalmeconfig.html" class="tsd-signature-type" data-tsd-kind="Interface">ILoyalmeConfig</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Response</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/types.iclientresponse.html" class="tsd-signature-type" data-tsd-kind="Interface">IClientResponse</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/types.iactivitylistdataresponse.html" class="tsd-signature-type" data-tsd-kind="Interface">IActivityListDataResponse</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -109,22 +109,25 @@
 					<a name="cancelevent" class="tsd-anchor"></a>
 					<h3>cancel<wbr>Event</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">cancel<wbr>Event<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="../interfaces/types.iloyalmeconfig.html" class="tsd-signature-type" data-tsd-kind="Interface">ILoyalmeConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">cancel<wbr>Event<span class="tsd-signature-symbol">(</span>params<span class="tsd-signature-symbol">: </span><a href="../interfaces/types.iparamscancelevent.html" class="tsd-signature-type" data-tsd-kind="Interface">IParamsCancelEvent</a>, config<span class="tsd-signature-symbol">: </span><a href="../interfaces/types.iloyalmeconfig.html" class="tsd-signature-type" data-tsd-kind="Interface">ILoyalmeConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pomeo/node-loyalme/blob/30759b7/src/api/activity.ts#L34">api/activity.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/pomeo/node-loyalme/blob/45b8b94/src/api/activity.ts#L69">api/activity.ts:69</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
+									<h5>params: <a href="../interfaces/types.iparamscancelevent.html" class="tsd-signature-type" data-tsd-kind="Interface">IParamsCancelEvent</a></h5>
+								</li>
+								<li>
 									<h5>config: <a href="../interfaces/types.iloyalmeconfig.html" class="tsd-signature-type" data-tsd-kind="Interface">ILoyalmeConfig</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -132,22 +135,25 @@
 					<a name="fireevent" class="tsd-anchor"></a>
 					<h3>fire<wbr>Event</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">fire<wbr>Event<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="../interfaces/types.iloyalmeconfig.html" class="tsd-signature-type" data-tsd-kind="Interface">ILoyalmeConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">fire<wbr>Event<span class="tsd-signature-symbol">(</span>params<span class="tsd-signature-symbol">: </span><a href="../interfaces/types.iparamsfireevent.html" class="tsd-signature-type" data-tsd-kind="Interface">IParamsFireEvent</a>, config<span class="tsd-signature-symbol">: </span><a href="../interfaces/types.iloyalmeconfig.html" class="tsd-signature-type" data-tsd-kind="Interface">ILoyalmeConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/types.ifireeventdataresponse.html" class="tsd-signature-type" data-tsd-kind="Interface">IFireEventDataResponse</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pomeo/node-loyalme/blob/30759b7/src/api/activity.ts#L30">api/activity.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/pomeo/node-loyalme/blob/45b8b94/src/api/activity.ts#L23">api/activity.ts:23</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
+									<h5>params: <a href="../interfaces/types.iparamsfireevent.html" class="tsd-signature-type" data-tsd-kind="Interface">IParamsFireEvent</a></h5>
+								</li>
+								<li>
 									<h5>config: <a href="../interfaces/types.iloyalmeconfig.html" class="tsd-signature-type" data-tsd-kind="Interface">ILoyalmeConfig</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/types.ifireeventdataresponse.html" class="tsd-signature-type" data-tsd-kind="Interface">IFireEventDataResponse</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
