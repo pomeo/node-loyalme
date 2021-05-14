@@ -20,7 +20,7 @@ describe('Delivery method', () => {
   });
 
   describe('Search by slug', () => {
-    it('Should return object with property title_en equal Paid', () => {
+    it('Should return object with property title_en equal TestName', () => {
       nock('https://loyaltycrm.ru/api')
         .get('/delivery-method?slug=testname')
         .reply(200, findBySlug1);

@@ -2,13 +2,13 @@ import chai from 'chai';
 import nock from 'nock';
 
 import Loyalme             from '../src/main';
-import createPaymentStatus from './responses/paymentStatus/create.json';
-import updatePaymentStatus from './responses/paymentStatus/update.json';
-import findBySlug1         from './responses/paymentStatus/findBySlug1.json';
-import findBySlug2         from './responses/paymentStatus/findBySlug2.json';
-import notFound            from './responses/paymentStatus/notFound.json';
+import createPaymentMethod from './responses/paymentMethod/create.json';
+import updatePaymentMethod from './responses/paymentMethod/update.json';
+import findBySlug1         from './responses/paymentMethod/findBySlug1.json';
+import findBySlug2         from './responses/paymentMethod/findBySlug2.json';
+import notFound            from './responses/paymentMethod/notFound.json';
 
-describe('Payment status', () => {
+describe('Payment method', () => {
   const should = chai.should();
   const loyalme = Loyalme({
     url: 'loyaltycrm.ru/api',
@@ -20,16 +20,16 @@ describe('Payment status', () => {
   });
 
   describe('Search by slug', () => {
-    it('Should return object with property title_en equal Paid', () => {
+    it('Should return object with property title_en equal TestName', () => {
       nock('https://loyaltycrm.ru/api')
-        .get('/payment-status?slug=paid')
+        .get('/payment-method?slug=testname')
         .reply(200, findBySlug1);
 
-      return loyalme.paymentStatus([{
-        title_en: 'Paid',
-        slug: 'paid'
+      return loyalme.paymentMethod([{
+        title_en: 'TestName',
+        slug: 'testname'
       }]).then(response => {
-        return should.equal(response[0].title_en, 'Paid');
+        return should.equal(response[0].title_en, 'TestName');
       });
     });
   });
@@ -37,18 +37,18 @@ describe('Payment status', () => {
   describe('Create', () => {
     it('Should return object with property title_en equal Test', () => {
       nock('https://loyaltycrm.ru/api')
-        .get('/payment-status?slug=paid')
+        .get('/payment-method?slug=testname')
         .reply(200, findBySlug1);
       nock('https://loyaltycrm.ru/api')
-        .get('/payment-status?slug=test')
+        .get('/payment-method?slug=test')
         .reply(200, notFound);
       nock('https://loyaltycrm.ru/api')
-        .post('/payment-status')
-        .reply(200, createPaymentStatus);
+        .post('/payment-method')
+        .reply(200, createPaymentMethod);
 
-      return loyalme.paymentStatus([{
-        title_en: 'Paid',
-        slug: 'paid'
+      return loyalme.paymentMethod([{
+        title_en: 'TestName',
+        slug: 'testname'
       }, {
         title_en: 'Test',
         title_ru: 'Тест',
@@ -63,21 +63,21 @@ describe('Payment status', () => {
   describe('Update', () => {
     it('Should return object with property title_en equal Updated', () => {
       nock('https://loyaltycrm.ru/api')
-        .get('/payment-status?slug=paid')
+        .get('/payment-method?slug=testname')
         .reply(200, findBySlug1);
       nock('https://loyaltycrm.ru/api')
-        .get('/payment-status?slug=pending')
+        .get('/payment-method?slug=testname2')
         .reply(200, findBySlug2);
       nock('https://loyaltycrm.ru/api')
-        .put('/payment-status/2')
-        .reply(200, updatePaymentStatus);
+        .put('/payment-method/2')
+        .reply(200, updatePaymentMethod);
 
-      return loyalme.paymentStatus([{
-        title_en: 'Paid',
-        slug: 'paid'
+      return loyalme.paymentMethod([{
+        title_en: 'TestName',
+        slug: 'testname'
       }, {
         title_en: 'Updated',
-        slug: 'pending'
+        slug: 'testname2'
       }]).then(response => {
         return should.equal(response[1].title_en, 'Updated');
       });
