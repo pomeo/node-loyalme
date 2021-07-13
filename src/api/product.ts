@@ -113,7 +113,11 @@ async function updateProduct(params: IParamsProduct,
     gotOptions.headers!.Authorization = `Bearer ${config.token}`;
     gotOptions.json = newProductObj;
     const response = await got.put(`https://${config.url}${api}/${item.id}`, gotOptions) as Response<IProductResponseOne>;
-    return response.body.data;
+    if (response.body.data) {
+      return response.body.data;
+    } else {
+      throw new Error(JSON.stringify(response.body, null, 2));
+    }
   }
 }
 
@@ -125,7 +129,7 @@ export async function product(products: IParamsProduct[],
   const arr: IProductDataResponse[] = [];
 
   const arrCat = await loyalme.category(categories);
-  const arrCategories = arrCat.map((item: ICategoryDataResponse) => item.id)
+  const arrCategories = arrCat.map((item: ICategoryDataResponse) => item.id);
 
   for (const item of products) {
     item.categories = arrCategories;
@@ -145,6 +149,8 @@ export async function product(products: IParamsProduct[],
       const { body } = await createProduct(item, config);
       if (body?.data) {
         arr.push(body.data);
+      } else {
+        throw new Error(JSON.stringify(body, null, 2));
       }
     }
   }

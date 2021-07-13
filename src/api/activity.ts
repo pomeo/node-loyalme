@@ -63,7 +63,11 @@ export async function fireEvent(params: IParamsFireEvent,
   gotOptions.headers!.Authorization = `Bearer ${config.token}`;
   gotOptions.json = reqObject;
   const response = await got.post(`https://${config.url}${api}/fire-event`, gotOptions) as Response<IFireEventResponse>;
-  return response.body.data;
+  if (response.body.data) {
+    return response.body.data;
+  } else {
+    throw new Error(JSON.stringify(response.body, null, 2));
+  }
 }
 
 export async function cancelEvent(params: IParamsCancelEvent,
@@ -97,5 +101,9 @@ export async function cancelEvent(params: IParamsCancelEvent,
   gotOptions.headers!.Authorization = `Bearer ${config.token}`;
   gotOptions.json = reqObject;
   const response = await got.post(`https://${config.url}${api}/cancel-event`, gotOptions) as Response<any>;
-  return response.body.data;
+  if (response.body.data) {
+    return response.body.data;
+  } else {
+    throw new Error(JSON.stringify(response.body, null, 2));
+  }
 }

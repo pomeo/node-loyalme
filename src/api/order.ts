@@ -102,7 +102,11 @@ async function updateOrder(params: IParamsOrder,
     gotOptions.headers!.Authorization = `Bearer ${config.token}`;
     gotOptions.json = newOrderObj;
     const response = await got.put(`https://${config.url}${api}/${item.id}`, gotOptions) as Response<IOrderResponseOne>;
-    return response.body.data;
+    if (response.body.data) {
+      return response.body.data;
+    } else {
+      throw new Error(JSON.stringify(response.body, null, 2));
+    }
   }
 }
 
@@ -128,6 +132,8 @@ export async function order(orders: IParamsOrder[],
       if (body?.data) {
         const tOrder = body.data;
         arr.push(tOrder);
+      } else {
+        throw new Error(JSON.stringify(body, null, 2));
       }
     }
   }

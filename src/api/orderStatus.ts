@@ -68,7 +68,11 @@ async function updateOrderStatus(params: IParamsOrderStatus,
     gotOptions.headers!.Authorization = `Bearer ${config.token}`;
     gotOptions.json = newOrderStatusObj;
     const response = await got.put(`https://${config.url}${api}/${item.id}`, gotOptions) as Response<IOrderStatusResponseOne>;
-    return response.body.data;
+    if (response.body.data) {
+      return response.body.data;
+    } else {
+      throw new Error(JSON.stringify(response.body, null, 2));
+    }
   }
 }
 
@@ -94,6 +98,8 @@ export async function orderStatus(status: IParamsOrderStatus[],
       if (body?.data) {
         const pStatus = body.data;
         arr.push(pStatus);
+      } else {
+        throw new Error(JSON.stringify(body, null, 2));
       }
     }
   }

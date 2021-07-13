@@ -77,7 +77,11 @@ async function updatePromocode(params: IParamsPromocode,
     gotOptions.headers!.Authorization = `Bearer ${config.token}`;
     gotOptions.json = newPromocodeObj;
     const response = await got.put(`https://${config.url}${api}/${item.id}`, gotOptions) as Response<IPromocodeResponseOne>;
-    return response.body.data;
+    if (response.body.data) {
+      return response.body.data;
+    } else {
+      throw new Error(JSON.stringify(response.body, null, 2));
+    }
   }
 }
 
@@ -103,6 +107,8 @@ export async function promocode(status: IParamsPromocode[],
       if (body?.data) {
         const pPromo = body.data;
         arr.push(pPromo);
+      } else {
+        throw new Error(JSON.stringify(body, null, 2));
       }
     }
   }
