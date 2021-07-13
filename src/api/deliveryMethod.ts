@@ -68,7 +68,11 @@ async function updateDeliveryMethod(params: IParamsOrderStatus,
     gotOptions.headers!.Authorization = `Bearer ${config.token}`;
     gotOptions.json = newDeliveryMethodObj;
     const response = await got.put(`https://${config.url}${api}/${item.id}`, gotOptions) as Response<IDeliveryMethodResponseOne>;
-    return response.body.data;
+    if (response.body.data) {
+      return response.body.data;
+    } else {
+      throw new Error(JSON.stringify(response.body, null, 2));
+    }
   }
 }
 
@@ -94,6 +98,8 @@ export async function deliveryMethod(status: IParamsDeliveryMethod[],
       if (body?.data) {
         const pMethod = body.data;
         arr.push(pMethod);
+      } else {
+        throw new Error(JSON.stringify(body, null, 2));
       }
     }
   }

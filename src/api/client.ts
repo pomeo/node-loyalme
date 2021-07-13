@@ -146,7 +146,11 @@ function returnResponse(clientRes: Response<IClientResponse>) {
     }
     return clientRes.body.data;
   } else {
-    return clientRes.body;
+    if (clientRes.body.message) {
+      throw new Error(JSON.stringify(clientRes.body, null, 2));
+    } else {
+      return clientRes.body;
+    }
   }
 }
 

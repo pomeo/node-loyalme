@@ -73,7 +73,11 @@ async function updateCategory(params: IParamsCategory,
     gotOptions.headers!.Authorization = `Bearer ${config.token}`;
     gotOptions.json = newCategoryObj;
     const response = await got.put(`https://${config.url}${api}/${item.id}`, gotOptions) as Response<ICategoryResponseOne>;
-    return response.body.data;
+    if (response.body.data) {
+      return response.body.data;
+    } else {
+      throw new Error(JSON.stringify(response.body, null, 2));
+    }
   }
 }
 
@@ -110,6 +114,8 @@ export async function category(params: IParamsCategory[],
           parent_id: cat.parent_id!,
           external_id: cat.external_id!
         })
+      } else {
+        throw new Error(JSON.stringify(body, null, 2));
       }
     }
   }

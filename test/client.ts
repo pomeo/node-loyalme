@@ -11,6 +11,7 @@ import findByEmail       from './responses/client/findByEmail.json';
 import findByPhone       from './responses/client/findByPhone.json';
 import mergeHash         from './responses/client/mergeHash.json';
 import notFound          from './responses/client/notFound.json';
+import errorClient       from './responses/client/error.json';
 
 describe('Client', () => {
   const should = chai.should();
@@ -148,6 +149,26 @@ describe('Client', () => {
       }).then(response => {
         return should.equal(response.name, 'Newname');
       });
+    });
+  });
+
+  describe('Error', () => {
+    it('Should throw error', () => {
+      nock('https://loyaltycrm.ru/api')
+        .get('/client?phone=79031234567')
+        .reply(200, findByPhone);
+      nock('https://loyaltycrm.ru/api')
+        .put('/client/123')
+        .reply(400, errorClient);
+
+      return loyalme.client({
+        phone: '79031234567',
+        name: 'Newname'
+      }).then(response => {
+        return response;
+      }).catch((err) => {
+        return should.equal(err instanceof Error, true);
+      })
     });
   });
 });

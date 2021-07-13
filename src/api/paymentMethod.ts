@@ -68,7 +68,11 @@ async function updatePaymentMethod(params: IParamsPaymentMethod,
     gotOptions.headers!.Authorization = `Bearer ${config.token}`;
     gotOptions.json = newPaymentMethodObj;
     const response = await got.put(`https://${config.url}${api}/${item.id}`, gotOptions) as Response<IPaymentMethodResponseOne>;
-    return response.body.data;
+    if (response.body.data) {
+      return response.body.data;
+    } else {
+      throw new Error(JSON.stringify(response.body, null, 2));
+    }
   }
 }
 
@@ -94,6 +98,8 @@ export async function paymentMethod(method: IParamsPaymentMethod[],
       if (body?.data) {
         const pMethod = body.data;
         arr.push(pMethod);
+      } else {
+        throw new Error(JSON.stringify(body, null, 2));
       }
     }
   }
