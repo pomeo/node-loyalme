@@ -76,6 +76,12 @@ function createClientObj(params: IParamsClientBoth,
   if (params.other_phones_subscribe) {
     reqObject.other_phones_subscribe = params.other_phones_subscribe;
   }
+  if (params.otherPhonesValidate) {
+    reqObject.other_phones_validate = params.otherPhonesValidate;
+  }
+  if (params.other_phones_validate) {
+    reqObject.other_phones_validate = params.other_phones_validate;
+  }
   if (params.otherEmails) {
     reqObject.other_emails = params.otherEmails;
   }
@@ -87,6 +93,12 @@ function createClientObj(params: IParamsClientBoth,
   }
   if (params.other_emails_subscribe) {
     reqObject.other_emails_subscribe = params.other_emails_subscribe;
+  }
+  if (params.otherEmailsValidate) {
+    reqObject.other_emails_validate = params.otherEmailsValidate;
+  }
+  if (params.other_emails_validate) {
+    reqObject.other_emails_validate = params.other_emails_validate;
   }
   if (params.attribute) {
     reqObject.attribute = params.attribute;
