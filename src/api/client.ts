@@ -253,7 +253,7 @@ export async function client(params: IParamsClient,
     response = await getClientByExternalId(params, config);
   }
 
-  if (params.fingerprint && response?.statusCode !== 200) {
+  if (params.fingerprint && response?.statusCode !== 200 && params.name !== 'subscriber') {
     response = await getClientByFingerprint(params, config);
   }
 

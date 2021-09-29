@@ -8,6 +8,7 @@ import findByFingerprint from './responses/client/findByFingerprint.json';
 import emptyFingerprint  from './responses/client/emptyFingerprint.json';
 import findByExternalId  from './responses/client/findByExternalId.json';
 import findByEmail       from './responses/client/findByEmail.json';
+import findByEmailSub    from './responses/client/findByEmailSubscriber.json';
 import findByPhone       from './responses/client/findByPhone.json';
 import mergeHash         from './responses/client/mergeHash.json';
 import notFound          from './responses/client/notFound.json';
@@ -24,7 +25,7 @@ describe('Client', () => {
     clientId: 4
   });
 
-  describe('Search by client_hash, external_id, email', () => {
+  describe('Search by client_hash, external_id, email, name subscriber', () => {
     it('Should return object with property client_hash equal 123456', () => {
       nock('https://loyaltycrm.ru/api')
         .get('/client?client_hash=123456')
@@ -37,6 +38,21 @@ describe('Client', () => {
         name: 'Testname'
       }).then(response => {
         return should.equal(response.client_hash[0].client_hash, '123456');
+      });
+    });
+
+    it('Should return object with property email equal test@test.com', () => {
+      nock('https://loyaltycrm.ru/api')
+        .get('/client?email=test@test.com')
+        .reply(200, findByEmailSub);
+
+      return loyalme.client({
+        fingerprint: '123456',
+        email: 'test@test.com',
+        phone: '79031234567',
+        name: 'subscriber'
+      }).then(response => {
+        return should.equal(response.email, 'test@test.com');
       });
     });
 
