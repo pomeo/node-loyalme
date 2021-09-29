@@ -101,8 +101,10 @@ interface IClientRequest {
   client_hash?: string | ILoyalmeClientHash[]
   other_phones?: string[]
   other_phones_subscribe?: number[]
+  other_phones_validate?: number[]
   other_emails?: string[]
   other_emails_subscribe?: number[]
+  other_emails_validate?: number[]
   attribute?: { [key: string]: string }
   person_id: number
   external_id?: string
