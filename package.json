@@ -38,7 +38,7 @@
     "eslint": "8.1.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-chai-expect": "2.2.0",
-    "eslint-plugin-import": "2.24.2",
+    "eslint-plugin-import": "2.25.2",
     "eslint-plugin-mocha": "9.0.0",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-optimize-regex": "1.2.1",
