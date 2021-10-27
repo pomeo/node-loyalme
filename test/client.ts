@@ -73,6 +73,25 @@ describe('Client', () => {
 
     it('Should return object with property email equal test@test.com', () => {
       nock('https://loyaltycrm.ru/api')
+        .get('/client?external_id=123456')
+        .reply(404, notFound);
+      nock('https://loyaltycrm.ru/api')
+        .get('/client?email=test@test.com')
+        .reply(200, findByEmail);
+
+      return loyalme.client({
+        externalId: '123456',
+        fingerprint: '123456',
+        email: 'test@test.com',
+        phone: '79031234567',
+        name: 'Testname'
+      }).then(response => {
+        return should.equal(response.email, 'test@test.com');
+      });
+    });
+
+    it('Should return object with property email equal test@test.com', () => {
+      nock('https://loyaltycrm.ru/api')
         .get('/client?email=test@test.com')
         .reply(200, findByEmail);
 

@@ -245,6 +245,10 @@ async function getClientByPhone(params: IParamsClient,
   })
 }
 
+function checkResponse(response: Response<IClientResponse> | undefined) {
+  return (response === undefined || response.statusCode !== 200);
+}
+
 export async function client(params: IParamsClient,
                              config: ILoyalmeConfig) {
   let response: Response<IClientResponse> | undefined;
@@ -253,15 +257,18 @@ export async function client(params: IParamsClient,
     response = await getClientByExternalId(params, config);
   }
 
-  if (params.fingerprint && response?.statusCode !== 200 && params.name !== 'subscriber') {
+  if (params.externalId === undefined &&
+      params.fingerprint &&
+      params.name !== 'subscriber' &&
+      checkResponse(response)) {
     response = await getClientByFingerprint(params, config);
   }
 
-  if (params.email && response?.statusCode !== 200) {
+  if (params.email && checkResponse(response)) {
     response = await getClientByEmail(params, config);
   }
 
-  if (params.phone && response?.statusCode !== 200) {
+  if (params.phone && checkResponse(response)) {
     response = await getClientByPhone(params, config);
   }
 
