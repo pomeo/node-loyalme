@@ -13,6 +13,7 @@ import findByPhone       from './responses/client/findByPhone.json';
 import mergeHash         from './responses/client/mergeHash.json';
 import notFound          from './responses/client/notFound.json';
 import errorClient       from './responses/client/error.json';
+import deleteClient      from './responses/client/delete.json';
 
 describe('Client', () => {
   const should = chai.should();
@@ -21,8 +22,7 @@ describe('Client', () => {
     token: '12345',
     brandId: 1,
     pointId: 2,
-    personId: 3,
-    clientId: 4
+    personId: 3
   });
 
   describe('Search by client_hash, external_id, email, name subscriber', () => {
@@ -204,6 +204,23 @@ describe('Client', () => {
       }).catch((err) => {
         return should.equal(err instanceof Error, true);
       })
+    });
+  });
+
+  describe('Delete', () => {
+    it('Should return object with property name equal Newname', () => {
+      nock('https://loyaltycrm.ru/api')
+        .get('/client?external_id=123456')
+        .reply(200, findByExternalId);
+      nock('https://loyaltycrm.ru/api')
+        .delete('/client/123')
+        .reply(200, deleteClient);
+
+      return loyalme.clientDelete({
+        externalId: '123456'
+      }).then(response => {
+        return should.equal(response.message, 'Client removed');
+      });
     });
   });
 });

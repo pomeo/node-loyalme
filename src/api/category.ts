@@ -1,6 +1,8 @@
 import _ from 'lodash';
+import debug from 'debug';
 import got, { OptionsOfJSONResponseBody, Response } from 'got';
 
+const logger = debug('loyalme:request:Category');
 const api = '/category';
 
 const reqOptions: OptionsOfJSONResponseBody = {
@@ -42,6 +44,7 @@ async function getCategory(params: {
   gotOptions.searchParams = {};
   gotOptions.searchParams[params.key] = params.value;
   gotOptions.headers!.Authorization = `Bearer ${params.token}`;
+  logger(gotOptions);
   return await got.get(`https://${params.url}${api}`, gotOptions);
 }
 
@@ -50,6 +53,7 @@ async function createCategory(params: IParamsCategory,
   const gotOptions = Object.assign({}, reqOptions);
   gotOptions.headers!.Authorization = `Bearer ${config.token}`;
   gotOptions.json = createCategoryObj(params, config);
+  logger(gotOptions);
   return await got.post(`https://${config.url}${api}`, gotOptions);
 }
 
@@ -72,6 +76,7 @@ async function updateCategory(params: IParamsCategory,
     const gotOptions = Object.assign({}, reqOptions);
     gotOptions.headers!.Authorization = `Bearer ${config.token}`;
     gotOptions.json = newCategoryObj;
+    logger(gotOptions);
     const response = await got.put(`https://${config.url}${api}/${item.id}`, gotOptions) as Response<ICategoryResponseOne>;
     if (response.body.data) {
       return response.body.data;

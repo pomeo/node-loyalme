@@ -20,8 +20,7 @@ describe('Loyalme', () => {
           token: 'qwerty',
           brandId: 1,
           pointId: 2,
-          personId: 3,
-          clientId: 4
+          personId: 3
         });
       }).should.throw('Missing url');
     });
@@ -34,8 +33,7 @@ describe('Loyalme', () => {
           url: 'google.com',
           brandId: 1,
           pointId: 2,
-          personId: 3,
-          clientId: 4
+          personId: 3
         });
       }).should.throw('Missing token');
     });
@@ -48,8 +46,7 @@ describe('Loyalme', () => {
           url: 'google.com',
           token: 'qwerty',
           pointId: 2,
-          personId: 3,
-          clientId: 4
+          personId: 3
         });
       }).should.throw('Missing brand id');
     });
@@ -62,8 +59,7 @@ describe('Loyalme', () => {
           url: 'google.com',
           token: 'qwerty',
           brandId: 1,
-          personId: 3,
-          clientId: 4
+          personId: 3
         });
       }).should.throw('Missing point id');
     });
@@ -76,36 +72,20 @@ describe('Loyalme', () => {
           url: 'google.com',
           token: 'qwerty',
           brandId: 1,
-          pointId: 2,
-          clientId: 4
+          pointId: 2
         });
       }).should.throw('Missing person id');
     });
   });
 
-  describe('Initialize without clientId', () => {
-    it('Should return "Missing client id"', () => {
-      (() => {
-        const loyalme = Loyalme({
-          url: 'google.com',
-          token: 'qwerty',
-          brandId: 1,
-          pointId: 2,
-          personId: 3
-        });
-      }).should.throw('Missing client id');
-    });
-  });
-
-  describe('Initialize with url, token, brandId, pointId, personId, clientId', () => {
+  describe('Initialize with url, token, brandId, pointId, personId', () => {
     it('Should return object', () => {
       const loyalme = Loyalme({
         url: 'google.com',
         token: 'qwerty',
         brandId: 1,
         pointId: 2,
-        personId: 3,
-        clientId: 4
+        personId: 3
       });
       assert.typeOf(loyalme, 'object');
     });

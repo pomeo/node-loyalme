@@ -11,6 +11,7 @@ import createProduct     from './responses/product/create.json';
 import updateProduct     from './responses/product/update.json';
 import findByExternalId  from './responses/product/findByExternalId.json';
 import notFound          from './responses/product/notFound.json';
+import deleteProduct     from './responses/product/delete.json';
 
 describe('Product', () => {
   const should = chai.should();
@@ -88,6 +89,23 @@ describe('Product', () => {
         externalId: '123456'
       }]).then(response => {
         return should.equal(response[0].title, 'Newproduct3');
+      });
+    });
+  });
+
+  describe('Delete', () => {
+    it('Should return message \'Product removed\'', () => {
+      nock('https://loyaltycrm.ru/api')
+        .get('/product?ext_item_id=123456')
+        .reply(200, findByExternalId);
+      nock('https://loyaltycrm.ru/api')
+        .delete('/product/20')
+        .reply(200, deleteProduct);
+
+      return loyalme.productDelete([{
+        extItemId: 123456
+      }]).then(response => {
+        return should.equal(response[0].message, 'Product removed');
       });
     });
   });

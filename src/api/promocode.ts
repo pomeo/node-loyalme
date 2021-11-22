@@ -1,6 +1,8 @@
 import _ from 'lodash';
+import debug from 'debug';
 import got, { OptionsOfJSONResponseBody, Response } from 'got';
 
+const logger = debug('loyalme:request:Promocode');
 const api = '/promocode';
 
 const reqOptions: OptionsOfJSONResponseBody = {
@@ -46,6 +48,7 @@ async function getPromocode(params: {
   gotOptions.searchParams = {};
   gotOptions.searchParams[params.key] = params.value;
   gotOptions.headers!.Authorization = `Bearer ${params.token}`;
+  logger(gotOptions);
   return await got.get(`https://${params.url}${api}`, gotOptions);
 }
 
@@ -54,6 +57,7 @@ async function createPromocode(params: IParamsPromocode,
   const gotOptions = Object.assign({}, reqOptions);
   gotOptions.headers!.Authorization = `Bearer ${config.token}`;
   gotOptions.json = createPromocodeObj(params, config);
+  logger(gotOptions);
   return await got.post(`https://${config.url}${api}`, gotOptions);
 }
 
@@ -76,6 +80,7 @@ async function updatePromocode(params: IParamsPromocode,
     const gotOptions = Object.assign({}, reqOptions);
     gotOptions.headers!.Authorization = `Bearer ${config.token}`;
     gotOptions.json = newPromocodeObj;
+    logger(gotOptions);
     const response = await got.put(`https://${config.url}${api}/${item.id}`, gotOptions) as Response<IPromocodeResponseOne>;
     if (response.body.data) {
       return response.body.data;

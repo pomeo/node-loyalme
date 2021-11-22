@@ -3,7 +3,7 @@
         "id": 1,
         "status": "new",
         "person_id": 3,
-        "client_id": 4,
+        "client_id": 123,
         "point_id": 2,
         "ext_order_id": "12345",
         "payment_type": "",

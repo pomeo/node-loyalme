@@ -20,8 +20,7 @@ const loyalme = Loyalme({
   token: 'token',
   brandId: 1,
   pointId: 2,
-  personId: 3,
-  clientId: 4
+  personId: 3
 });
 ```
 

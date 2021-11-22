@@ -1,6 +1,8 @@
 import _ from 'lodash';
+import debug from 'debug';
 import got, { OptionsOfJSONResponseBody, Response } from 'got';
 
+const logger = debug('loyalme:request:Product');
 const api = '/product';
 
 const reqOptions: OptionsOfJSONResponseBody = {
@@ -69,6 +71,18 @@ function createProductObj(params: IParamsProduct,
   if (params.ext_photo_url !== undefined) {
     reqObject.ext_photo_url = params.ext_photo_url;
   }
+  if (params.extUrl !== undefined) {
+    reqObject.ext_url = params.extUrl;
+  }
+  if (params.ext_url !== undefined) {
+    reqObject.ext_url = params.ext_url;
+  }
+  if (params.extItemName !== undefined) {
+    reqObject.ext_item_name = params.extItemName;
+  }
+  if (params.ext_item_name !== undefined) {
+    reqObject.ext_item_name = params.ext_item_name;
+  }
   return reqObject;
 }
 
@@ -82,6 +96,7 @@ async function getProduct(params: {
   gotOptions.searchParams = {};
   gotOptions.searchParams[params.key] = params.value;
   gotOptions.headers!.Authorization = `Bearer ${params.token}`;
+  logger(gotOptions);
   return await got.get(`https://${params.url}${api}`, gotOptions);
 }
 
@@ -90,6 +105,7 @@ async function createProduct(params: IParamsProduct,
   const gotOptions = Object.assign({}, reqOptions);
   gotOptions.headers!.Authorization = `Bearer ${config.token}`;
   gotOptions.json = createProductObj(params, config);
+  logger(gotOptions);
   return await got.post(`https://${config.url}${api}`, gotOptions);
 }
 
@@ -112,6 +128,7 @@ async function updateProduct(params: IParamsProduct,
     const gotOptions = Object.assign({}, reqOptions);
     gotOptions.headers!.Authorization = `Bearer ${config.token}`;
     gotOptions.json = newProductObj;
+    logger(gotOptions);
     const response = await got.put(`https://${config.url}${api}/${item.id}`, gotOptions) as Response<IProductResponseOne>;
     if (response.body.data) {
       return response.body.data;
@@ -151,6 +168,33 @@ export async function product(products: IParamsProduct[],
         arr.push(body.data);
       } else {
         throw new Error(JSON.stringify(body, null, 2));
+      }
+    }
+  }
+
+  return arr;
+}
+
+export async function productDelete(products: IParamsProduct[],
+                                    config: ILoyalmeConfig) {
+
+  const arr: ILoyalmeResponse[] = [];
+
+  for (const item of products) {
+    const response = await getProduct({
+      key: 'ext_item_id',
+      value: item.extItemId!,
+      token: config.token,
+      url: config.url
+    })
+
+    if (response.body?.data?.[0]) {
+      const gotOptions = Object.assign({}, reqOptions);
+      gotOptions.headers!.Authorization = `Bearer ${config.token}`;
+      logger(gotOptions);
+      const responseDelete = await got.delete(`https://${config.url}${api}/${response.body.data[0].id}`, gotOptions) as Response<ILoyalmeResponse>;
+      if (responseDelete?.body) {
+        arr.push(responseDelete.body);
       }
     }
   }
