@@ -1,368 +1,96 @@
-<!doctype html>
-<html class="default no-js">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>loyalme</title>
-	<meta name="description" content="Documentation for loyalme">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="assets/css/main.css">
-	<script async src="assets/js/search.js" id="search-script"></script>
-</head>
-<body>
-<header>
-	<div class="tsd-page-toolbar">
-		<div class="container">
-			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
-					<div class="field">
-						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
-						<input id="tsd-search-field" type="text" />
-					</div>
-					<ul class="results">
-						<li class="state loading">Preparing search index...</li>
-						<li class="state failure">The search index is not available</li>
-					</ul>
-					<a href="index.html" class="title">loyalme</a>
-				</div>
-				<div class="table-cell" id="tsd-widgets">
-					<div id="tsd-filter">
-						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
-						<div class="tsd-filter-group">
-							<div class="tsd-select" id="tsd-filter-visibility">
-								<span class="tsd-select-label">All</span>
-								<ul class="tsd-select-list">
-									<li data-value="public">Public</li>
-									<li data-value="protected">Public/Protected</li>
-									<li data-value="private" class="selected">All</li>
-								</ul>
-							</div>
-							<input type="checkbox" id="tsd-filter-inherited" checked />
-							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-externals" checked />
-							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
-						</div>
-					</div>
-					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="tsd-page-title">
-		<div class="container">
-			<h1>loyalme</h1>
-		</div>
-	</div>
-</header>
-<div class="container container-main">
-	<div class="row">
-		<div class="col-8 col-content">
-			<div class="tsd-panel tsd-typography">
-				<a href="#loyalme" id="loyalme" style="color: inherit; text-decoration: none;">
-					<h1>Loyalme</h1>
-				</a>
-				<p>Loyalme module that allows you to communicate with the Loyalme API from node.js</p>
-				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
-					<h2>Installation</h2>
-				</a>
-				<pre><code><span style="color: #001080">npm</span><span style="color: #000000"> </span><span style="color: #001080">install</span><span style="color: #000000"> </span><span style="color: #001080">loyalme</span>
+<!DOCTYPE html><html class="default no-js"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>loyalme</title><meta name="description" content="Documentation for loyalme"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><script>document.body.classList.add(localStorage.getItem("tsd-theme") || "os")</script><header><div class="tsd-page-toolbar"><div class="container"><div class="table-wrap"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget search no-caption">Search</label><input type="text" id="tsd-search-field"/></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">loyalme</a></div><div class="table-cell" id="tsd-widgets"><div id="tsd-filter"><a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a><div class="tsd-filter-group"><div class="tsd-select" id="tsd-filter-visibility"><span class="tsd-select-label">All</span><ul class="tsd-select-list"><li data-value="public">Public</li><li data-value="protected">Public/Protected</li><li data-value="private" class="selected">All</li></ul></div> <input type="checkbox" id="tsd-filter-inherited" checked/><label class="tsd-widget" for="tsd-filter-inherited">Inherited</label><input type="checkbox" id="tsd-filter-externals" checked/><label class="tsd-widget" for="tsd-filter-externals">Externals</label></div></div><a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a></div></div></div></div><div class="tsd-page-title"><div class="container"><h1>loyalme</h1></div></div></header><div class="container container-main"><div class="row"><div class="col-8 col-content"><div class="tsd-panel tsd-typography">
+<a href="#loyalme" id="loyalme" style="color: inherit; text-decoration: none;">
+  <h1>Loyalme</h1>
+</a>
+<p>Loyalme module that allows you to communicate with the Loyalme API from node.js</p>
+
+<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+  <h2>Installation</h2>
+</a>
+<pre><code><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-0">install</span><span class="hl-1"> </span><span class="hl-0">loyalme</span>
 </code></pre>
-				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
-					<h2>Usage</h2>
-				</a>
-				<pre><code class="language-js"><span style="color: #008000">// Import a module</span>
-<span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">Loyalme</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;loyalme&#039;</span><span style="color: #000000">;</span>
-<span style="color: #008000">// Create an instance with your API credentials</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">loyalme</span><span style="color: #000000"> = </span><span style="color: #795E26">Loyalme</span><span style="color: #000000">({</span>
-<span style="color: #000000">  </span><span style="color: #001080">url:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;loyaltycrm.ru/api&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">token:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;token&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">brandId:</span><span style="color: #000000"> </span><span style="color: #098658">1</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">pointId:</span><span style="color: #000000"> </span><span style="color: #098658">2</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">personId:</span><span style="color: #000000"> </span><span style="color: #098658">3</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">clientId:</span><span style="color: #000000"> </span><span style="color: #098658">4</span>
-<span style="color: #000000">});</span>
+
+<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+  <h2>Usage</h2>
+</a>
+<pre><code class="language-js"><span class="hl-2">// Import a module</span><br/><span class="hl-3">import</span><span class="hl-1"> </span><span class="hl-0">Loyalme</span><span class="hl-1"> </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-4">&#39;loyalme&#39;</span><span class="hl-1">;</span><br/><span class="hl-2">// Create an instance with your API credentials</span><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">loyalme</span><span class="hl-1"> = </span><span class="hl-7">Loyalme</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-0">url:</span><span class="hl-1"> </span><span class="hl-4">&#39;loyaltycrm.ru/api&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">token:</span><span class="hl-1"> </span><span class="hl-4">&#39;token&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">brandId:</span><span class="hl-1"> </span><span class="hl-8">1</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">pointId:</span><span class="hl-1"> </span><span class="hl-8">2</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">personId:</span><span class="hl-1"> </span><span class="hl-8">3</span><br/><span class="hl-1">});</span>
 </code></pre>
-				<a href="#loyalmeclient" id="loyalmeclient" style="color: inherit; text-decoration: none;">
-					<h3><a href="https://pomeo.github.io/node-loyalme/modules/api_client.html">loyalme.client</a></h3>
-				</a>
-				<pre><code class="language-js"><span style="color: #001080">loyalme</span><span style="color: #000000">.</span><span style="color: #795E26">client</span><span style="color: #000000">({</span>
-<span style="color: #000000">  </span><span style="color: #001080">externalId:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;12345&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">email:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;user@email.com&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">phone:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;1111111111&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">name:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;User&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">lastName:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;Userlastname&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">birthdate:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;2000-01-03&#039;</span>
-<span style="color: #000000">}).</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000">);</span>
-<span style="color: #000000">}).</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000">);</span>
-<span style="color: #000000">});</span>
+
+<a href="#loyalmeclient" id="loyalmeclient" style="color: inherit; text-decoration: none;">
+  <h3><a href="https://pomeo.github.io/node-loyalme/modules/api_client.html">loyalme.client</a></h3>
+</a>
+<pre><code class="language-js"><span class="hl-0">loyalme</span><span class="hl-1">.</span><span class="hl-7">client</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-0">externalId:</span><span class="hl-1"> </span><span class="hl-4">&#39;12345&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">email:</span><span class="hl-1"> </span><span class="hl-4">&#39;user@email.com&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">phone:</span><span class="hl-1"> </span><span class="hl-4">&#39;1111111111&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">name:</span><span class="hl-1"> </span><span class="hl-4">&#39;User&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">lastName:</span><span class="hl-1"> </span><span class="hl-4">&#39;Userlastname&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">birthdate:</span><span class="hl-1"> </span><span class="hl-4">&#39;2000-01-03&#39;</span><br/><span class="hl-1">}).</span><span class="hl-7">then</span><span class="hl-1">(</span><span class="hl-0">output</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-0">console</span><span class="hl-1">.</span><span class="hl-7">info</span><span class="hl-1">(</span><span class="hl-0">output</span><span class="hl-1">);</span><br/><span class="hl-1">}).</span><span class="hl-7">catch</span><span class="hl-1">(</span><span class="hl-0">err</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-0">console</span><span class="hl-1">.</span><span class="hl-7">error</span><span class="hl-1">(</span><span class="hl-0">err</span><span class="hl-1">);</span><br/><span class="hl-1">});</span>
 </code></pre>
-				<a href="#loyalmeclientfingerprint" id="loyalmeclientfingerprint" style="color: inherit; text-decoration: none;">
-					<h3><a href="https://pomeo.github.io/node-loyalme/modules/api_client.html#clientfingerprint">loyalme.clientFingerprint</a></h3>
-				</a>
-				<pre><code class="language-js"><span style="color: #001080">loyalme</span><span style="color: #000000">.</span><span style="color: #795E26">clientFingerprint</span><span style="color: #000000">({</span>
-<span style="color: #000000">  </span><span style="color: #001080">id:</span><span style="color: #000000"> </span><span style="color: #098658">12345</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">fingerprint:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;abcdefg&#039;</span>
-<span style="color: #000000">}).</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000">);</span>
-<span style="color: #000000">}).</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000">);</span>
-<span style="color: #000000">});</span>
+
+<a href="#loyalmeclientfingerprint" id="loyalmeclientfingerprint" style="color: inherit; text-decoration: none;">
+  <h3><a href="https://pomeo.github.io/node-loyalme/modules/api_client.html#clientfingerprint">loyalme.clientFingerprint</a></h3>
+</a>
+<pre><code class="language-js"><span class="hl-0">loyalme</span><span class="hl-1">.</span><span class="hl-7">clientFingerprint</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-0">id:</span><span class="hl-1"> </span><span class="hl-8">12345</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">fingerprint:</span><span class="hl-1"> </span><span class="hl-4">&#39;abcdefg&#39;</span><br/><span class="hl-1">}).</span><span class="hl-7">then</span><span class="hl-1">(</span><span class="hl-0">output</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-0">console</span><span class="hl-1">.</span><span class="hl-7">info</span><span class="hl-1">(</span><span class="hl-0">output</span><span class="hl-1">);</span><br/><span class="hl-1">}).</span><span class="hl-7">catch</span><span class="hl-1">(</span><span class="hl-0">err</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-0">console</span><span class="hl-1">.</span><span class="hl-7">error</span><span class="hl-1">(</span><span class="hl-0">err</span><span class="hl-1">);</span><br/><span class="hl-1">});</span>
 </code></pre>
-				<a href="#loyalmeproduct" id="loyalmeproduct" style="color: inherit; text-decoration: none;">
-					<h3><a href="https://pomeo.github.io/node-loyalme/modules/api_product.html">loyalme.product</a></h3>
-				</a>
-				<pre><code class="language-js"><span style="color: #001080">loyalme</span><span style="color: #000000">.</span><span style="color: #795E26">product</span><span style="color: #000000">([{</span>
-<span style="color: #000000">  </span><span style="color: #001080">title:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;ProductName&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">extItemId:</span><span style="color: #000000"> </span><span style="color: #098658">123456</span>
-<span style="color: #000000">}], [{</span>
-<span style="color: #000000">  </span><span style="color: #001080">name:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;CategoryName&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">externalId:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;123456&#039;</span>
-<span style="color: #000000">}]).</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000">);</span>
-<span style="color: #000000">}).</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000">);</span>
-<span style="color: #000000">});</span>
+
+<a href="#loyalmeproduct" id="loyalmeproduct" style="color: inherit; text-decoration: none;">
+  <h3><a href="https://pomeo.github.io/node-loyalme/modules/api_product.html">loyalme.product</a></h3>
+</a>
+<pre><code class="language-js"><span class="hl-0">loyalme</span><span class="hl-1">.</span><span class="hl-7">product</span><span class="hl-1">([{</span><br/><span class="hl-1">  </span><span class="hl-0">title:</span><span class="hl-1"> </span><span class="hl-4">&#39;ProductName&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">extItemId:</span><span class="hl-1"> </span><span class="hl-8">123456</span><br/><span class="hl-1">}], [{</span><br/><span class="hl-1">  </span><span class="hl-0">name:</span><span class="hl-1"> </span><span class="hl-4">&#39;CategoryName&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">externalId:</span><span class="hl-1"> </span><span class="hl-4">&#39;123456&#39;</span><br/><span class="hl-1">}]).</span><span class="hl-7">then</span><span class="hl-1">(</span><span class="hl-0">output</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-0">console</span><span class="hl-1">.</span><span class="hl-7">info</span><span class="hl-1">(</span><span class="hl-0">output</span><span class="hl-1">);</span><br/><span class="hl-1">}).</span><span class="hl-7">catch</span><span class="hl-1">(</span><span class="hl-0">err</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-0">console</span><span class="hl-1">.</span><span class="hl-7">error</span><span class="hl-1">(</span><span class="hl-0">err</span><span class="hl-1">);</span><br/><span class="hl-1">});</span>
 </code></pre>
-				<a href="#loyalmecategory" id="loyalmecategory" style="color: inherit; text-decoration: none;">
-					<h3><a href="https://pomeo.github.io/node-loyalme/modules/api_category.html">loyalme.category</a></h3>
-				</a>
-				<pre><code class="language-js"><span style="color: #001080">loyalme</span><span style="color: #000000">.</span><span style="color: #795E26">category</span><span style="color: #000000">([{</span>
-<span style="color: #000000">  </span><span style="color: #001080">name:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;CategoryName1&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">externalId:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;123456&#039;</span>
-<span style="color: #000000">}, {</span>
-<span style="color: #000000">  </span><span style="color: #001080">name:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;CategoryName2&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">externalId:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;1234567&#039;</span>
-<span style="color: #000000">}]).</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000">);</span>
-<span style="color: #000000">}).</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000">);</span>
-<span style="color: #000000">});</span>
+
+<a href="#loyalmecategory" id="loyalmecategory" style="color: inherit; text-decoration: none;">
+  <h3><a href="https://pomeo.github.io/node-loyalme/modules/api_category.html">loyalme.category</a></h3>
+</a>
+<pre><code class="language-js"><span class="hl-0">loyalme</span><span class="hl-1">.</span><span class="hl-7">category</span><span class="hl-1">([{</span><br/><span class="hl-1">  </span><span class="hl-0">name:</span><span class="hl-1"> </span><span class="hl-4">&#39;CategoryName1&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">externalId:</span><span class="hl-1"> </span><span class="hl-4">&#39;123456&#39;</span><br/><span class="hl-1">}, {</span><br/><span class="hl-1">  </span><span class="hl-0">name:</span><span class="hl-1"> </span><span class="hl-4">&#39;CategoryName2&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">externalId:</span><span class="hl-1"> </span><span class="hl-4">&#39;1234567&#39;</span><br/><span class="hl-1">}]).</span><span class="hl-7">then</span><span class="hl-1">(</span><span class="hl-0">output</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-0">console</span><span class="hl-1">.</span><span class="hl-7">info</span><span class="hl-1">(</span><span class="hl-0">output</span><span class="hl-1">);</span><br/><span class="hl-1">}).</span><span class="hl-7">catch</span><span class="hl-1">(</span><span class="hl-0">err</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-0">console</span><span class="hl-1">.</span><span class="hl-7">error</span><span class="hl-1">(</span><span class="hl-0">err</span><span class="hl-1">);</span><br/><span class="hl-1">});</span>
 </code></pre>
-				<a href="#loyalmeactivitylist" id="loyalmeactivitylist" style="color: inherit; text-decoration: none;">
-					<h3><a href="https://pomeo.github.io/node-loyalme/modules/api_activity.html">loyalme.activityList</a></h3>
-				</a>
-				<pre><code class="language-js"><span style="color: #001080">loyalme</span><span style="color: #000000">.</span><span style="color: #795E26">activityList</span><span style="color: #000000">()</span>
-<span style="color: #000000">.</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000">);</span>
-<span style="color: #000000">}).</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000">);</span>
-<span style="color: #000000">});</span>
+
+<a href="#loyalmeactivitylist" id="loyalmeactivitylist" style="color: inherit; text-decoration: none;">
+  <h3><a href="https://pomeo.github.io/node-loyalme/modules/api_activity.html">loyalme.activityList</a></h3>
+</a>
+<pre><code class="language-js"><span class="hl-0">loyalme</span><span class="hl-1">.</span><span class="hl-7">activityList</span><span class="hl-1">()</span><br/><span class="hl-1">.</span><span class="hl-7">then</span><span class="hl-1">(</span><span class="hl-0">output</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-0">console</span><span class="hl-1">.</span><span class="hl-7">info</span><span class="hl-1">(</span><span class="hl-0">output</span><span class="hl-1">);</span><br/><span class="hl-1">}).</span><span class="hl-7">catch</span><span class="hl-1">(</span><span class="hl-0">err</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-0">console</span><span class="hl-1">.</span><span class="hl-7">error</span><span class="hl-1">(</span><span class="hl-0">err</span><span class="hl-1">);</span><br/><span class="hl-1">});</span>
 </code></pre>
-				<a href="#loyalmecancelevent" id="loyalmecancelevent" style="color: inherit; text-decoration: none;">
-					<h3><a href="https://pomeo.github.io/node-loyalme/modules/api_activity.html">loyalme.cancelEvent</a></h3>
-				</a>
-				<pre><code class="language-js"><span style="color: #001080">loyalme</span><span style="color: #000000">.</span><span style="color: #795E26">cancelEvent</span><span style="color: #000000">({</span>
-<span style="color: #000000">  </span><span style="color: #001080">clientId:</span><span style="color: #000000"> </span><span style="color: #098658">123</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">clientHash:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;1a42949f6c7d805112543a98203bac42&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">activityKey:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;ordercreated&#039;</span>
-<span style="color: #000000">})</span>
-<span style="color: #000000">.</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000">);</span>
-<span style="color: #000000">}).</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000">);</span>
-<span style="color: #000000">});</span>
+
+<a href="#loyalmecancelevent" id="loyalmecancelevent" style="color: inherit; text-decoration: none;">
+  <h3><a href="https://pomeo.github.io/node-loyalme/modules/api_activity.html">loyalme.cancelEvent</a></h3>
+</a>
+<pre><code class="language-js"><span class="hl-0">loyalme</span><span class="hl-1">.</span><span class="hl-7">cancelEvent</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-0">clientId:</span><span class="hl-1"> </span><span class="hl-8">123</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">clientHash:</span><span class="hl-1"> </span><span class="hl-4">&#39;1a42949f6c7d805112543a98203bac42&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">activityKey:</span><span class="hl-1"> </span><span class="hl-4">&#39;ordercreated&#39;</span><br/><span class="hl-1">})</span><br/><span class="hl-1">.</span><span class="hl-7">then</span><span class="hl-1">(</span><span class="hl-0">output</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-0">console</span><span class="hl-1">.</span><span class="hl-7">info</span><span class="hl-1">(</span><span class="hl-0">output</span><span class="hl-1">);</span><br/><span class="hl-1">}).</span><span class="hl-7">catch</span><span class="hl-1">(</span><span class="hl-0">err</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-0">console</span><span class="hl-1">.</span><span class="hl-7">error</span><span class="hl-1">(</span><span class="hl-0">err</span><span class="hl-1">);</span><br/><span class="hl-1">});</span>
 </code></pre>
-				<a href="#loyalmefireevent" id="loyalmefireevent" style="color: inherit; text-decoration: none;">
-					<h3><a href="https://pomeo.github.io/node-loyalme/modules/api_activity.html">loyalme.fireEvent</a></h3>
-				</a>
-				<pre><code class="language-js"><span style="color: #001080">loyalme</span><span style="color: #000000">.</span><span style="color: #795E26">fireEvent</span><span style="color: #000000">({</span>
-<span style="color: #000000">  </span><span style="color: #001080">clientId:</span><span style="color: #000000"> </span><span style="color: #098658">123</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">clientHash:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;1a42949f6c7d805112543a98203bac42&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">activityKey:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;ordercreated&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">activityCreatedAt:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;2020-01-15 12:01:05&#039;</span>
-<span style="color: #000000">})</span>
-<span style="color: #000000">.</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000">);</span>
-<span style="color: #000000">}).</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000">);</span>
-<span style="color: #000000">});</span>
+
+<a href="#loyalmefireevent" id="loyalmefireevent" style="color: inherit; text-decoration: none;">
+  <h3><a href="https://pomeo.github.io/node-loyalme/modules/api_activity.html">loyalme.fireEvent</a></h3>
+</a>
+<pre><code class="language-js"><span class="hl-0">loyalme</span><span class="hl-1">.</span><span class="hl-7">fireEvent</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-0">clientId:</span><span class="hl-1"> </span><span class="hl-8">123</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">clientHash:</span><span class="hl-1"> </span><span class="hl-4">&#39;1a42949f6c7d805112543a98203bac42&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">activityKey:</span><span class="hl-1"> </span><span class="hl-4">&#39;ordercreated&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">activityCreatedAt:</span><span class="hl-1"> </span><span class="hl-4">&#39;2020-01-15 12:01:05&#39;</span><br/><span class="hl-1">})</span><br/><span class="hl-1">.</span><span class="hl-7">then</span><span class="hl-1">(</span><span class="hl-0">output</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-0">console</span><span class="hl-1">.</span><span class="hl-7">info</span><span class="hl-1">(</span><span class="hl-0">output</span><span class="hl-1">);</span><br/><span class="hl-1">}).</span><span class="hl-7">catch</span><span class="hl-1">(</span><span class="hl-0">err</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-0">console</span><span class="hl-1">.</span><span class="hl-7">error</span><span class="hl-1">(</span><span class="hl-0">err</span><span class="hl-1">);</span><br/><span class="hl-1">});</span>
 </code></pre>
-				<a href="#loyalmedeliverymethod" id="loyalmedeliverymethod" style="color: inherit; text-decoration: none;">
-					<h3><a href="https://pomeo.github.io/node-loyalme/modules/api_deliverymethod.html">loyalme.deliveryMethod</a></h3>
-				</a>
-				<pre><code class="language-js"><span style="color: #001080">loyalme</span><span style="color: #000000">.</span><span style="color: #795E26">deliveryMethod</span><span style="color: #000000">([{</span>
-<span style="color: #000000">  </span><span style="color: #001080">title_en:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;MethodName1&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">slug:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;name1&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">is_active:</span><span style="color: #000000"> </span><span style="color: #098658">1</span>
-<span style="color: #000000">}, {</span>
-<span style="color: #000000">  </span><span style="color: #001080">title_en:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;MathodName2&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">title_ru:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;ИмяМетода&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">slug:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;name2&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">is_active:</span><span style="color: #000000"> </span><span style="color: #098658">1</span>
-<span style="color: #000000">}]).</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000">);</span>
-<span style="color: #000000">}).</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000">);</span>
-<span style="color: #000000">});</span>
+
+<a href="#loyalmedeliverymethod" id="loyalmedeliverymethod" style="color: inherit; text-decoration: none;">
+  <h3><a href="https://pomeo.github.io/node-loyalme/modules/api_deliverymethod.html">loyalme.deliveryMethod</a></h3>
+</a>
+<pre><code class="language-js"><span class="hl-0">loyalme</span><span class="hl-1">.</span><span class="hl-7">deliveryMethod</span><span class="hl-1">([{</span><br/><span class="hl-1">  </span><span class="hl-0">title_en:</span><span class="hl-1"> </span><span class="hl-4">&#39;MethodName1&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">slug:</span><span class="hl-1"> </span><span class="hl-4">&#39;name1&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">is_active:</span><span class="hl-1"> </span><span class="hl-8">1</span><br/><span class="hl-1">}, {</span><br/><span class="hl-1">  </span><span class="hl-0">title_en:</span><span class="hl-1"> </span><span class="hl-4">&#39;MathodName2&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">title_ru:</span><span class="hl-1"> </span><span class="hl-4">&#39;ИмяМетода&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">slug:</span><span class="hl-1"> </span><span class="hl-4">&#39;name2&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">is_active:</span><span class="hl-1"> </span><span class="hl-8">1</span><br/><span class="hl-1">}]).</span><span class="hl-7">then</span><span class="hl-1">(</span><span class="hl-0">output</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-0">console</span><span class="hl-1">.</span><span class="hl-7">info</span><span class="hl-1">(</span><span class="hl-0">output</span><span class="hl-1">);</span><br/><span class="hl-1">}).</span><span class="hl-7">catch</span><span class="hl-1">(</span><span class="hl-0">err</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-0">console</span><span class="hl-1">.</span><span class="hl-7">error</span><span class="hl-1">(</span><span class="hl-0">err</span><span class="hl-1">);</span><br/><span class="hl-1">});</span>
 </code></pre>
-				<a href="#loyalmeorder" id="loyalmeorder" style="color: inherit; text-decoration: none;">
-					<h3><a href="https://pomeo.github.io/node-loyalme/modules/api_order.html">loyalme.order</a></h3>
-				</a>
-				<pre><code class="language-js"><span style="color: #001080">loyalme</span><span style="color: #000000">.</span><span style="color: #795E26">order</span><span style="color: #000000">([{</span>
-<span style="color: #000000">  </span><span style="color: #001080">status:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;new&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">extOrderId:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;123&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">amount:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;10.00&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">products:</span><span style="color: #000000"> [{</span>
-<span style="color: #000000">    </span><span style="color: #001080">quantity:</span><span style="color: #000000"> </span><span style="color: #098658">1</span><span style="color: #000000">,</span>
-<span style="color: #000000">    </span><span style="color: #001080">product_id:</span><span style="color: #000000"> </span><span style="color: #098658">2</span><span style="color: #000000">,</span>
-<span style="color: #000000">    </span><span style="color: #001080">price:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;10.00&#039;</span>
-<span style="color: #000000">  }]</span>
-<span style="color: #000000">}, {</span>
-<span style="color: #000000">  </span><span style="color: #001080">status:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;new&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">extOrderId:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;12345&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">amount:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;10.00&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">products:</span><span style="color: #000000"> [{</span>
-<span style="color: #000000">    </span><span style="color: #001080">quantity:</span><span style="color: #000000"> </span><span style="color: #098658">1</span><span style="color: #000000">,</span>
-<span style="color: #000000">    </span><span style="color: #001080">product_id:</span><span style="color: #000000"> </span><span style="color: #098658">2</span><span style="color: #000000">,</span>
-<span style="color: #000000">    </span><span style="color: #001080">price:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;10.00&#039;</span>
-<span style="color: #000000">  }]</span>
-<span style="color: #000000">}]).</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000">);</span>
-<span style="color: #000000">}).</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000">);</span>
-<span style="color: #000000">});</span>
+
+<a href="#loyalmeorder" id="loyalmeorder" style="color: inherit; text-decoration: none;">
+  <h3><a href="https://pomeo.github.io/node-loyalme/modules/api_order.html">loyalme.order</a></h3>
+</a>
+<pre><code class="language-js"><span class="hl-0">loyalme</span><span class="hl-1">.</span><span class="hl-7">order</span><span class="hl-1">([{</span><br/><span class="hl-1">  </span><span class="hl-0">status:</span><span class="hl-1"> </span><span class="hl-4">&#39;new&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">extOrderId:</span><span class="hl-1"> </span><span class="hl-4">&#39;123&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">amount:</span><span class="hl-1"> </span><span class="hl-4">&#39;10.00&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">products:</span><span class="hl-1"> [{</span><br/><span class="hl-1">    </span><span class="hl-0">quantity:</span><span class="hl-1"> </span><span class="hl-8">1</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-0">product_id:</span><span class="hl-1"> </span><span class="hl-8">2</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-0">price:</span><span class="hl-1"> </span><span class="hl-4">&#39;10.00&#39;</span><br/><span class="hl-1">  }]</span><br/><span class="hl-1">}, {</span><br/><span class="hl-1">  </span><span class="hl-0">status:</span><span class="hl-1"> </span><span class="hl-4">&#39;new&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">extOrderId:</span><span class="hl-1"> </span><span class="hl-4">&#39;12345&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">amount:</span><span class="hl-1"> </span><span class="hl-4">&#39;10.00&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">products:</span><span class="hl-1"> [{</span><br/><span class="hl-1">    </span><span class="hl-0">quantity:</span><span class="hl-1"> </span><span class="hl-8">1</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-0">product_id:</span><span class="hl-1"> </span><span class="hl-8">2</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-0">price:</span><span class="hl-1"> </span><span class="hl-4">&#39;10.00&#39;</span><br/><span class="hl-1">  }]</span><br/><span class="hl-1">}]).</span><span class="hl-7">then</span><span class="hl-1">(</span><span class="hl-0">output</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-0">console</span><span class="hl-1">.</span><span class="hl-7">info</span><span class="hl-1">(</span><span class="hl-0">output</span><span class="hl-1">);</span><br/><span class="hl-1">}).</span><span class="hl-7">catch</span><span class="hl-1">(</span><span class="hl-0">err</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-0">console</span><span class="hl-1">.</span><span class="hl-7">error</span><span class="hl-1">(</span><span class="hl-0">err</span><span class="hl-1">);</span><br/><span class="hl-1">});</span>
 </code></pre>
-				<a href="#loyalmeorderstatus" id="loyalmeorderstatus" style="color: inherit; text-decoration: none;">
-					<h3><a href="https://pomeo.github.io/node-loyalme/modules/api_orderstatus.html">loyalme.orderStatus</a></h3>
-				</a>
-				<pre><code class="language-js"><span style="color: #001080">loyalme</span><span style="color: #000000">.</span><span style="color: #795E26">orderStatus</span><span style="color: #000000">([{</span>
-<span style="color: #000000">  </span><span style="color: #001080">title_en:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;StatusName1&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">slug:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;name1&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">is_active:</span><span style="color: #000000"> </span><span style="color: #098658">1</span>
-<span style="color: #000000">}, {</span>
-<span style="color: #000000">  </span><span style="color: #001080">title_en:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;StatusName2&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">title_ru:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;ИмяСтатуса&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">slug:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;name2&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">is_active:</span><span style="color: #000000"> </span><span style="color: #098658">1</span>
-<span style="color: #000000">}]).</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000">);</span>
-<span style="color: #000000">}).</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000">);</span>
-<span style="color: #000000">});</span>
+
+<a href="#loyalmeorderstatus" id="loyalmeorderstatus" style="color: inherit; text-decoration: none;">
+  <h3><a href="https://pomeo.github.io/node-loyalme/modules/api_orderstatus.html">loyalme.orderStatus</a></h3>
+</a>
+<pre><code class="language-js"><span class="hl-0">loyalme</span><span class="hl-1">.</span><span class="hl-7">orderStatus</span><span class="hl-1">([{</span><br/><span class="hl-1">  </span><span class="hl-0">title_en:</span><span class="hl-1"> </span><span class="hl-4">&#39;StatusName1&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">slug:</span><span class="hl-1"> </span><span class="hl-4">&#39;name1&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">is_active:</span><span class="hl-1"> </span><span class="hl-8">1</span><br/><span class="hl-1">}, {</span><br/><span class="hl-1">  </span><span class="hl-0">title_en:</span><span class="hl-1"> </span><span class="hl-4">&#39;StatusName2&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">title_ru:</span><span class="hl-1"> </span><span class="hl-4">&#39;ИмяСтатуса&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">slug:</span><span class="hl-1"> </span><span class="hl-4">&#39;name2&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">is_active:</span><span class="hl-1"> </span><span class="hl-8">1</span><br/><span class="hl-1">}]).</span><span class="hl-7">then</span><span class="hl-1">(</span><span class="hl-0">output</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-0">console</span><span class="hl-1">.</span><span class="hl-7">info</span><span class="hl-1">(</span><span class="hl-0">output</span><span class="hl-1">);</span><br/><span class="hl-1">}).</span><span class="hl-7">catch</span><span class="hl-1">(</span><span class="hl-0">err</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-0">console</span><span class="hl-1">.</span><span class="hl-7">error</span><span class="hl-1">(</span><span class="hl-0">err</span><span class="hl-1">);</span><br/><span class="hl-1">});</span>
 </code></pre>
-				<a href="#loyalmepaymentmethod" id="loyalmepaymentmethod" style="color: inherit; text-decoration: none;">
-					<h3><a href="https://pomeo.github.io/node-loyalme/modules/api_paymentmethod.html">loyalme.paymentMethod</a></h3>
-				</a>
-				<pre><code class="language-js"><span style="color: #001080">loyalme</span><span style="color: #000000">.</span><span style="color: #795E26">paymentMethod</span><span style="color: #000000">([{</span>
-<span style="color: #000000">  </span><span style="color: #001080">title_en:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;MethodName1&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">slug:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;name1&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">is_active:</span><span style="color: #000000"> </span><span style="color: #098658">1</span>
-<span style="color: #000000">}, {</span>
-<span style="color: #000000">  </span><span style="color: #001080">title_en:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;MathodName2&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">title_ru:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;ИмяМетода&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">slug:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;name2&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">is_active:</span><span style="color: #000000"> </span><span style="color: #098658">1</span>
-<span style="color: #000000">}]).</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000">);</span>
-<span style="color: #000000">}).</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000">);</span>
-<span style="color: #000000">});</span>
+
+<a href="#loyalmepaymentmethod" id="loyalmepaymentmethod" style="color: inherit; text-decoration: none;">
+  <h3><a href="https://pomeo.github.io/node-loyalme/modules/api_paymentmethod.html">loyalme.paymentMethod</a></h3>
+</a>
+<pre><code class="language-js"><span class="hl-0">loyalme</span><span class="hl-1">.</span><span class="hl-7">paymentMethod</span><span class="hl-1">([{</span><br/><span class="hl-1">  </span><span class="hl-0">title_en:</span><span class="hl-1"> </span><span class="hl-4">&#39;MethodName1&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">slug:</span><span class="hl-1"> </span><span class="hl-4">&#39;name1&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">is_active:</span><span class="hl-1"> </span><span class="hl-8">1</span><br/><span class="hl-1">}, {</span><br/><span class="hl-1">  </span><span class="hl-0">title_en:</span><span class="hl-1"> </span><span class="hl-4">&#39;MathodName2&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">title_ru:</span><span class="hl-1"> </span><span class="hl-4">&#39;ИмяМетода&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">slug:</span><span class="hl-1"> </span><span class="hl-4">&#39;name2&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">is_active:</span><span class="hl-1"> </span><span class="hl-8">1</span><br/><span class="hl-1">}]).</span><span class="hl-7">then</span><span class="hl-1">(</span><span class="hl-0">output</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-0">console</span><span class="hl-1">.</span><span class="hl-7">info</span><span class="hl-1">(</span><span class="hl-0">output</span><span class="hl-1">);</span><br/><span class="hl-1">}).</span><span class="hl-7">catch</span><span class="hl-1">(</span><span class="hl-0">err</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-0">console</span><span class="hl-1">.</span><span class="hl-7">error</span><span class="hl-1">(</span><span class="hl-0">err</span><span class="hl-1">);</span><br/><span class="hl-1">});</span>
 </code></pre>
-				<a href="#loyalmepaymentstatus" id="loyalmepaymentstatus" style="color: inherit; text-decoration: none;">
-					<h3><a href="https://pomeo.github.io/node-loyalme/modules/api_paymentstatus.html">loyalme.paymentStatus</a></h3>
-				</a>
-				<pre><code class="language-js"><span style="color: #001080">loyalme</span><span style="color: #000000">.</span><span style="color: #795E26">paymentStatus</span><span style="color: #000000">([{</span>
-<span style="color: #000000">  </span><span style="color: #001080">title_en:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;StatusName1&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">slug:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;name1&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">is_active:</span><span style="color: #000000"> </span><span style="color: #098658">1</span>
-<span style="color: #000000">}, {</span>
-<span style="color: #000000">  </span><span style="color: #001080">title_en:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;StatusName2&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">title_ru:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;ИмяСтатуса&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">slug:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;name2&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">is_active:</span><span style="color: #000000"> </span><span style="color: #098658">1</span>
-<span style="color: #000000">}]).</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000">);</span>
-<span style="color: #000000">}).</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000">);</span>
-<span style="color: #000000">});</span>
+
+<a href="#loyalmepaymentstatus" id="loyalmepaymentstatus" style="color: inherit; text-decoration: none;">
+  <h3><a href="https://pomeo.github.io/node-loyalme/modules/api_paymentstatus.html">loyalme.paymentStatus</a></h3>
+</a>
+<pre><code class="language-js"><span class="hl-0">loyalme</span><span class="hl-1">.</span><span class="hl-7">paymentStatus</span><span class="hl-1">([{</span><br/><span class="hl-1">  </span><span class="hl-0">title_en:</span><span class="hl-1"> </span><span class="hl-4">&#39;StatusName1&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">slug:</span><span class="hl-1"> </span><span class="hl-4">&#39;name1&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">is_active:</span><span class="hl-1"> </span><span class="hl-8">1</span><br/><span class="hl-1">}, {</span><br/><span class="hl-1">  </span><span class="hl-0">title_en:</span><span class="hl-1"> </span><span class="hl-4">&#39;StatusName2&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">title_ru:</span><span class="hl-1"> </span><span class="hl-4">&#39;ИмяСтатуса&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">slug:</span><span class="hl-1"> </span><span class="hl-4">&#39;name2&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">is_active:</span><span class="hl-1"> </span><span class="hl-8">1</span><br/><span class="hl-1">}]).</span><span class="hl-7">then</span><span class="hl-1">(</span><span class="hl-0">output</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-0">console</span><span class="hl-1">.</span><span class="hl-7">info</span><span class="hl-1">(</span><span class="hl-0">output</span><span class="hl-1">);</span><br/><span class="hl-1">}).</span><span class="hl-7">catch</span><span class="hl-1">(</span><span class="hl-0">err</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-0">console</span><span class="hl-1">.</span><span class="hl-7">error</span><span class="hl-1">(</span><span class="hl-0">err</span><span class="hl-1">);</span><br/><span class="hl-1">});</span>
 </code></pre>
-				<a href="#loyalmepromocode" id="loyalmepromocode" style="color: inherit; text-decoration: none;">
-					<h3><a href="https://pomeo.github.io/node-loyalme/modules/api_promocode.html">loyalme.promocode</a></h3>
-				</a>
-				<pre><code class="language-js"><span style="color: #001080">loyalme</span><span style="color: #000000">.</span><span style="color: #795E26">promocode</span><span style="color: #000000">([{</span>
-<span style="color: #000000">  </span><span style="color: #001080">code:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;123&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">activeFrom:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;2021-01-01 12:01:30&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">activeTo:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;2021-01-14 18:11:35&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">status:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;is_active&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">description:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;content&#039;</span>
-<span style="color: #000000">}]).</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #001080">output</span><span style="color: #000000">);</span>
-<span style="color: #000000">}).</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000">);</span>
-<span style="color: #000000">});</span>
+
+<a href="#loyalmepromocode" id="loyalmepromocode" style="color: inherit; text-decoration: none;">
+  <h3><a href="https://pomeo.github.io/node-loyalme/modules/api_promocode.html">loyalme.promocode</a></h3>
+</a>
+<pre><code class="language-js"><span class="hl-0">loyalme</span><span class="hl-1">.</span><span class="hl-7">promocode</span><span class="hl-1">([{</span><br/><span class="hl-1">  </span><span class="hl-0">code:</span><span class="hl-1"> </span><span class="hl-4">&#39;123&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">activeFrom:</span><span class="hl-1"> </span><span class="hl-4">&#39;2021-01-01 12:01:30&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">activeTo:</span><span class="hl-1"> </span><span class="hl-4">&#39;2021-01-14 18:11:35&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">status:</span><span class="hl-1"> </span><span class="hl-4">&#39;is_active&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-0">description:</span><span class="hl-1"> </span><span class="hl-4">&#39;content&#39;</span><br/><span class="hl-1">}]).</span><span class="hl-7">then</span><span class="hl-1">(</span><span class="hl-0">output</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-0">console</span><span class="hl-1">.</span><span class="hl-7">info</span><span class="hl-1">(</span><span class="hl-0">output</span><span class="hl-1">);</span><br/><span class="hl-1">}).</span><span class="hl-7">catch</span><span class="hl-1">(</span><span class="hl-0">err</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-0">console</span><span class="hl-1">.</span><span class="hl-7">error</span><span class="hl-1">(</span><span class="hl-0">err</span><span class="hl-1">);</span><br/><span class="hl-1">});</span>
 </code></pre>
-			</div>
-		</div>
-		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
-			<nav class="tsd-navigation primary">
-				<ul>
-					<li class=" ">
-						<a href="modules.html">Modules</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/api_activity.html">api/activity</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/api_category.html">api/category</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/api_client.html">api/client</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/api_deliverymethod.html">api/delivery<wbr>Method</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/api_order.html">api/order</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/api_orderstatus.html">api/order<wbr>Status</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/api_paymentmethod.html">api/payment<wbr>Method</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/api_paymentstatus.html">api/payment<wbr>Status</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/api_product.html">api/product</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/api_promocode.html">api/promocode</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/main.html">main</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/types.html">types</a>
-					</li>
-				</ul>
-			</nav>
-			<nav class="tsd-navigation secondary menu-sticky">
-				<ul class="before-current">
-				</ul>
-			</nav>
-		</div>
-	</div>
-</div>
-<footer class="with-border-bottom">
-	<div class="container">
-		<h2>Legend</h2>
-		<div class="tsd-legend-group">
-			<ul class="tsd-legend">
-				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-			</ul>
-		</div>
-	</div>
-</footer>
-<div class="container tsd-generator">
-	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
-</div>
-<div class="overlay"></div>
-<script src="assets/js/main.js"></script>
-</body>
-</html>
+</div></div><div class="col-4 col-menu menu-sticky-wrap menu-highlight"><nav class="tsd-navigation primary"><ul><li class="current"><a href="modules.html">Exports</a></li></ul></nav><nav class="tsd-navigation secondary menu-sticky"><ul><li class="tsd-kind-property"><a href="modules.html#default" class="tsd-kind-icon">default</a></li></ul></nav></div></div></div><footer class="with-border-bottom"><div class="container"><h2>Settings</h2><p>Theme <select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></p></div></footer><div class="container tsd-generator"><p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div><div class="overlay"></div><script src="assets/main.js"></script></body></html>
