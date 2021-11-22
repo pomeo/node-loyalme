@@ -1,6 +1,8 @@
 import _ from 'lodash';
+import debug from 'debug';
 import got, { OptionsOfJSONResponseBody, Response } from 'got';
 
+const logger = debug('loyalme:request:DeliveryMethod');
 const api = '/delivery-method';
 
 const reqOptions: OptionsOfJSONResponseBody = {
@@ -37,6 +39,7 @@ async function getDeliveryMethod(params: {
   gotOptions.searchParams = {};
   gotOptions.searchParams[params.key] = params.value;
   gotOptions.headers!.Authorization = `Bearer ${params.token}`;
+  logger(gotOptions);
   return await got.get(`https://${params.url}${api}`, gotOptions);
 }
 
@@ -45,6 +48,7 @@ async function createDeliveryMethod(params: IParamsDeliveryMethod,
   const gotOptions = Object.assign({}, reqOptions);
   gotOptions.headers!.Authorization = `Bearer ${config.token}`;
   gotOptions.json = createDeliveryMethodObj(params, config);
+  logger(gotOptions);
   return await got.post(`https://${config.url}${api}`, gotOptions);
 }
 
@@ -67,6 +71,7 @@ async function updateDeliveryMethod(params: IParamsOrderStatus,
     const gotOptions = Object.assign({}, reqOptions);
     gotOptions.headers!.Authorization = `Bearer ${config.token}`;
     gotOptions.json = newDeliveryMethodObj;
+    logger(gotOptions);
     const response = await got.put(`https://${config.url}${api}/${item.id}`, gotOptions) as Response<IDeliveryMethodResponseOne>;
     if (response.body.data) {
       return response.body.data;

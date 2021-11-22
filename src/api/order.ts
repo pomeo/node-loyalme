@@ -1,6 +1,8 @@
 import _ from 'lodash';
+import debug from 'debug';
 import got, { OptionsOfJSONResponseBody, Response } from 'got';
 
+const logger = debug('loyalme:request:Order');
 const api = '/order';
 
 const reqOptions: OptionsOfJSONResponseBody = {
@@ -12,10 +14,15 @@ const reqOptions: OptionsOfJSONResponseBody = {
 function createOrderObj(params: IParamsOrder,
                         config: ILoyalmeConfig) {
   const reqObject: IOrderRequest = {
-    client_id: config.clientId,
     person_id: config.personId,
     point_id: config.pointId
   };
+  if (params.clientId !== undefined) {
+    reqObject.client_id = params.clientId;
+  }
+  if (params.client_id !== undefined) {
+    reqObject.client_id = params.client_id;
+  }
   if (params.status) {
     reqObject.status = params.status;
   }
@@ -71,6 +78,7 @@ async function getOrder(params: {
   gotOptions.searchParams = {};
   gotOptions.searchParams[params.key] = params.value;
   gotOptions.headers!.Authorization = `Bearer ${params.token}`;
+  logger(gotOptions);
   return await got.get(`https://${params.url}${api}`, gotOptions);
 }
 
@@ -79,6 +87,7 @@ async function createOrder(params: IParamsOrder,
   const gotOptions = Object.assign({}, reqOptions);
   gotOptions.headers!.Authorization = `Bearer ${config.token}`;
   gotOptions.json = createOrderObj(params, config);
+  logger(gotOptions);
   return await got.post(`https://${config.url}${api}`, gotOptions);
 }
 
@@ -101,6 +110,7 @@ async function updateOrder(params: IParamsOrder,
     const gotOptions = Object.assign({}, reqOptions);
     gotOptions.headers!.Authorization = `Bearer ${config.token}`;
     gotOptions.json = newOrderObj;
+    logger(gotOptions);
     const response = await got.put(`https://${config.url}${api}/${item.id}`, gotOptions) as Response<IOrderResponseOne>;
     if (response.body.data) {
       return response.body.data;

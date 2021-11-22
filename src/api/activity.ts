@@ -1,6 +1,8 @@
 import _ from 'lodash';
+import debug from 'debug';
 import got, { OptionsOfJSONResponseBody, Response } from 'got';
 
+const logger = debug('loyalme:request:Activity');
 const api = '/activity';
 
 const reqOptions: OptionsOfJSONResponseBody = {
@@ -12,6 +14,7 @@ const reqOptions: OptionsOfJSONResponseBody = {
 async function getActivity(config: ILoyalmeConfig): Promise<IActivityListDataResponse[] | undefined> {
   const gotOptions = Object.assign({}, reqOptions);
   gotOptions.headers!.Authorization = `Bearer ${config.token}`;
+  logger(gotOptions);
   const response = await got.get(`https://${config.url}${api}/list`, gotOptions) as Response<IActivityListResponse>;
   return response.body.data;
 }
@@ -62,6 +65,7 @@ export async function fireEvent(params: IParamsFireEvent,
   const gotOptions = Object.assign({}, reqOptions);
   gotOptions.headers!.Authorization = `Bearer ${config.token}`;
   gotOptions.json = reqObject;
+  logger(gotOptions);
   const response = await got.post(`https://${config.url}${api}/fire-event`, gotOptions) as Response<IFireEventResponse>;
   if (response.body.data) {
     return response.body.data;
@@ -100,6 +104,7 @@ export async function cancelEvent(params: IParamsCancelEvent,
   const gotOptions = Object.assign({}, reqOptions);
   gotOptions.headers!.Authorization = `Bearer ${config.token}`;
   gotOptions.json = reqObject;
+  logger(gotOptions);
   const response = await got.post(`https://${config.url}${api}/cancel-event`, gotOptions) as Response<any>;
   if (response.body.data) {
     return response.body.data;

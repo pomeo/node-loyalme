@@ -16,7 +16,6 @@ interface ILoyalmeConfig {
   pointId: number
   brandId: number
   personId: number
-  clientId: number
 }
 
 interface ILoyalmeBirthday {
@@ -56,6 +55,11 @@ interface IParamsClient {
   otherEmailsValidate?: number[]
   otherEmailsSubscribe?: number[]
   attribute?: { [key: string]: string }
+  blockedAt?: {
+    date: string
+    timezone_type: number
+    timezone: string
+  }
 }
 
 interface IParamsClientBoth extends IParamsClient {
@@ -78,6 +82,11 @@ interface IParamsClientBoth extends IParamsClient {
   person_id?: number
   point_id?: number
   brand_id?: number
+  blocked_at?: {
+    date: string
+    timezone_type: number
+    timezone: string
+  }
 }
 
 interface IClientRequest {
@@ -89,6 +98,11 @@ interface IClientRequest {
       | string[]
       | number[]
       | { [key: string]: string }
+      | {
+          date: string
+          timezone_type: number
+          timezone: string
+        }
   point_id: number
   brand_id: number
   name?: string
@@ -423,7 +437,8 @@ interface IOrderStatusRequest {
 interface IParamsOrder {
   status?: string
   person_id: number
-  client_id: number
+  client_id?: number
+  clientId?: number
   point_id: number
   ext_order_id?: number
   extOrderId?: number

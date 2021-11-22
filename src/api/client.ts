@@ -1,6 +1,8 @@
 import _ from 'lodash';
+import debug from 'debug';
 import got, { OptionsOfJSONResponseBody, Response } from 'got';
 
+const logger = debug('loyalme:request:Client');
 const api = '/client';
 
 const reqOptions: OptionsOfJSONResponseBody = {
@@ -103,6 +105,12 @@ function createClientObj(params: IParamsClientBoth,
   if (params.attribute) {
     reqObject.attribute = params.attribute;
   }
+  if (params.blockedAt) {
+    reqObject.blocked_at = params.blockedAt;
+  }
+  if (params.blocked_at) {
+    reqObject.blocked_at = params.blocked_at;
+  }
   return reqObject;
 }
 
@@ -116,6 +124,7 @@ async function getClient(params: {
   gotOptions.searchParams = {};
   gotOptions.searchParams[params.key] = params.value;
   gotOptions.headers!.Authorization = `Bearer ${params.token}`;
+  logger(gotOptions);
   return await got.get(`https://${params.url}${api}`, gotOptions);
 }
 
@@ -124,6 +133,7 @@ async function createClient(params: IParamsClient,
   const gotOptions = Object.assign({}, reqOptions);
   gotOptions.headers!.Authorization = `Bearer ${config.token}`;
   gotOptions.json = createClientObj(params, config);
+  logger(gotOptions);
   return await got.post(`https://${config.url}${api}`, gotOptions);
 }
 
@@ -147,6 +157,7 @@ async function updateClient(params: IParamsClient,
     const gotOptions = Object.assign({}, reqOptions);
     gotOptions.headers!.Authorization = `Bearer ${config.token}`;
     gotOptions.json = newClientObj;
+    logger(gotOptions);
     return await got.put(`https://${config.url}${api}/${data.id}`, gotOptions);
   }
 }
@@ -184,6 +195,7 @@ export async function clientFingerprint(params: {
 }, config: ILoyalmeConfig): Promise<Response<IClientMergeResponse>> {
   const gotOptions = Object.assign({}, reqOptions);
   gotOptions.headers!.Authorization = `Bearer ${config.token}`;
+  logger(gotOptions);
   return await got.post(`https://${config.url}${api}/${params.id}/merge/${params.fingerprint}`, gotOptions);
 }
 
@@ -275,4 +287,20 @@ export async function client(params: IParamsClient,
   let clientResponse = await createResponse(params, response, config);
 
   return await checkMerge(params, config, clientResponse);
+}
+
+export async function clientDelete(params: IParamsClient,
+                                   config: ILoyalmeConfig) {
+
+  const clientResponse = await getClientByExternalId(params, config);
+
+  if (clientResponse?.body?.data?.[0]) {
+    const gotOptions = Object.assign({}, reqOptions);
+    gotOptions.headers!.Authorization = `Bearer ${config.token}`;
+    logger(gotOptions);
+    const deleteResponse = await got.delete(`https://${config.url}${api}/${clientResponse.body.data[0].id}`, gotOptions);
+    return deleteResponse?.body;
+  } else {
+    return clientResponse?.body;
+  }
 }
