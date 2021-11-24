@@ -16,7 +16,8 @@ function createClientObj(params: IParamsClientBoth,
   const reqObject: IClientRequest = {
     person_id: config.personId,
     point_id: config.pointId,
-    brand_id: config.brandId
+    brand_id: config.brandId,
+    blockedAt: null
   };
   if (params.externalId) {
     reqObject.external_id = params.externalId;

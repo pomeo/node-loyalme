@@ -93,6 +93,7 @@ interface IClientRequest {
   [index: string]: string
       | number
       | undefined
+      | null
       | ILoyalmeReqBirthday
       | ILoyalmeClientHash[]
       | string[]
