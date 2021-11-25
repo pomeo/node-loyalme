@@ -15,13 +15,13 @@ function createProductObj(params: IParamsProduct,
                           config: ILoyalmeConfig) {
   const reqObject: IProductRequest = {
     point_id: config.pointId,
-    categories: params.categories.map((item: ICategoryDataResponse) => {
+    categories: params.categories ? params.categories.map((item: ICategoryDataResponse) => {
       if (isNaN(Number(item))) {
         return item.id;
       } else {
         return item;
       }
-    })
+    }) : []
   };
   if (params.title) {
     reqObject.title = params.title;
@@ -65,22 +65,22 @@ function createProductObj(params: IParamsProduct,
   if (params.accrual_rate !== undefined) {
     reqObject.accrual_rate = params.accrual_rate;
   }
-  if (params.extPhotoUrl !== undefined) {
+  if (params.extPhotoUrl) {
     reqObject.ext_photo_url = params.extPhotoUrl;
   }
-  if (params.ext_photo_url !== undefined) {
+  if (params.ext_photo_url) {
     reqObject.ext_photo_url = params.ext_photo_url;
   }
-  if (params.extUrl !== undefined) {
+  if (params.extUrl) {
     reqObject.ext_url = params.extUrl;
   }
-  if (params.ext_url !== undefined) {
+  if (params.ext_url) {
     reqObject.ext_url = params.ext_url;
   }
-  if (params.extItemName !== undefined) {
+  if (params.extItemName) {
     reqObject.ext_item_name = params.extItemName;
   }
-  if (params.ext_item_name !== undefined) {
+  if (params.ext_item_name) {
     reqObject.ext_item_name = params.ext_item_name;
   }
   return reqObject;
