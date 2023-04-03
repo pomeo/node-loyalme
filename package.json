@@ -30,7 +30,7 @@
     "@types/debug": "4.1.7",
     "@types/lodash": "4.14.192",
     "@types/mocha": "9.1.1",
-    "@types/node": "16.18.16",
+    "@types/node": "16.18.23",
     "@typescript-eslint/eslint-plugin": "5.55.0",
     "@typescript-eslint/parser": "5.55.0",
     "c8": "7.13.0",
