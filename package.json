@@ -46,7 +46,7 @@
     "eslint-plugin-optimize-regex": "1.2.1",
     "eslint-plugin-radar": "0.2.1",
     "eslint-plugin-sort-destructure-keys": "1.5.0",
-    "eslint-plugin-unicorn": "39.0.0",
+    "eslint-plugin-unicorn": "48.0.1",
     "lint-staged": "12.5.0",
     "mocha": "9.2.2",
     "nock": "13.3.2",
