@@ -36,7 +36,7 @@
     "c8": "9.1.0",
     "chai": "4.4.1",
     "chai-as-promised": "7.1.1",
-    "cspell": "6.31.3",
+    "cspell": "8.6.1",
     "eslint": "8.57.0",
     "eslint-config-prettier": "8.10.0",
     "eslint-plugin-chai-expect": "3.0.0",
