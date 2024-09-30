@@ -28,7 +28,7 @@
     "@types/chai": "4.3.20",
     "@types/chai-as-promised": "8.0.1",
     "@types/debug": "4.1.12",
-    "@types/lodash": "4.17.7",
+    "@types/lodash": "4.17.9",
     "@types/mocha": "9.1.1",
     "@types/node": "20.16.5",
     "@typescript-eslint/eslint-plugin": "5.62.0",
