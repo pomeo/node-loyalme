@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@fintechstudios/eslint-plugin-chai-as-promised": "3.1.0",
-    "@types/chai": "5.2.2",
+    "@types/chai": "5.2.3",
     "@types/chai-as-promised": "8.0.2",
     "@types/debug": "4.1.12",
     "@types/lodash": "4.17.20",
