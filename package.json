@@ -1,7 +1,7 @@
 {
   "name": "loyalme",
   "homepage": "https://github.com/pomeo/loyalme",
-  "version": "1.1.15",
+  "version": "1.1.16",
   "description": "Loyalme module for node.js",
   "keywords": [
     "loyalme",
@@ -20,7 +20,7 @@
   "main": "./dist/index.js",
   "dependencies": {
     "debug": "4.4.3",
-    "got": "11.8.6",
+    "got": "14.6.6",
     "lodash": "4.17.23"
   },
   "devDependencies": {
