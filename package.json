@@ -27,7 +27,7 @@
     "@fintechstudios/eslint-plugin-chai-as-promised": "3.1.0",
     "@types/chai": "5.2.3",
     "@types/chai-as-promised": "8.0.2",
-    "@types/debug": "4.1.12",
+    "@types/debug": "4.1.13",
     "@types/lodash": "4.17.24",
     "@types/mocha": "10.0.10",
     "@types/node": "24.12.0",
